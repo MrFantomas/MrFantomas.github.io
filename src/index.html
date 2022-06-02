@@ -45,12 +45,18 @@
          </p>
          
          <input type="submit" value="Скачать резюме">
+         
+         <a download="Summary.txt" href="files/summary.txt">Скачать резюме</a>
+         
+         <a href="files/summary.txt" download="">
+	        <button>Скачать резюме <i class="download_sum"></i></button>
+        </a>
      </div>
      
      <div class="myskills">
-         <h2>Что я умею</h2>
+         <h2 align=center>Что я умею</h2>
          
-         <table border="1" width="100%">
+         <table border="1" width="100%" align=center>
              <tr>
                  <th>Веб-дизайн</th>
                  <th>Разработка</th>
@@ -91,9 +97,110 @@
          </table>
      </div>
      
+    
      <div class="cost">
          <h2>Расчёт стоимости</h2>
+         <select name="type_site" id="type_site">
+            <option selected disabled hidden>Выберите пункт</option>
+            <option value="Визитка">Визитка</option>
+            <option value="Корпоративный">Корпоративный</option>
+            <option value="Интернет-магазин">Интернет-магазин</option>
+         </select>
+     </div>
+     
+     
+     <div class="Design">
+         <h2>Дизайн</h2>    
+         <select name="design" id="design">
+            <option selected disabled hidden>Выберите пункт</option>
+            <option value="Деловой">Деловой</option>
+            <option value="Ретро">Ретро</option>
+            <option value="Минимализм">Минимализм</option>
+         </select>
+     </div>
+     
+     <div class="Adaptability">
+         <h2>Адаптивность</h2>
+         <select name="adaptability" id="adaptability">
+             <option value="Полная">Полная (Все устройства)</option>
+             <option value="Только ПК">Только ПК</option>
+             <option value="Только смартфоны">Только смартфоны</option>
+         </select>
+     </div>
+     
+     <br>
+     <div class="Total">
+         <table border="1">
+             <tr width=100%>
+                <td>Сроки</td>
+                <td>0</td>
+             </tr>
+             <tr>
+                <td>Стоимость</td>
+                <td>0</td>
+             </tr>
+         </table>
+     </div>
+     
+     <div class="statistics">
+         <h2 align=center>Немного статистики</h2>
+         <table align=center>
+             <tr>
+                 <th>120</th>
+                 <th>4,600</th>
+                 <th>340</th>
+                 <th>23</th>
+             </tr>
+             
+             <tr>
+                 <td>Счастливых клиентов</td>
+                 <td>Часов работы</td>
+                 <td>Проектов завершено</td>
+                 <td>Наград получено</td>
+             </tr>
+         </table>
+     </div>
+     
+     <div class="reviews">
+         <h2 align=center>Отзывы</h2>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio consequatur ex velit! Deleniti.</p>
+         <p><b>Михаил,</b> Ген директор ПАО &ldquo;Газпром&rdquo;</p>
+     </div>
+     
+     <div class="MyContacs">
+         <h2>Мои контакты</h2>
+         <p>
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, facere
+         </p>
          
+         <table>
+             <tr>
+                 <td>Санкт-Петербург <br>Невский проспект 11</td>
+                 <td>info@companyname.com</td>
+                 <td>+7 999 999-99-99</td>
+             </tr>
+         </table>
+         
+         <h3>Оставьте мне сообщение</h3>
+         <table border="1">
+             <tr>
+                 <td><input type="text" placeholder="Имя"></td>
+                 <td><input type="text" placeholder="Email"></td>
+             </tr>
+             
+             <tr>
+                 <td colspan="2">
+                     <textarea name="message" id="message"> </textarea>
+                 </td>
+             </tr>
+             <tr>
+                 <td  colspan="2" align=center><input type="submit" value="Отправить"></td>
+             </tr>
+         </table>
+     </div>
+     
+     <div class="map">
+         <p>Map will go here</p>
      </div>
 </body> 
 </html>
