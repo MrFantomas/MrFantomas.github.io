@@ -1,0 +1,337 @@
+body{
+    font-family: Arial, sans-serif;
+}
+
+nav{
+    width: 100%;
+    height: 60px;
+    background: #344051;
+}
+
+.logo{
+    color: #fff;
+    font-size: 28px;
+    line-height: 60px;
+    padding-left: 388px;
+    float: left;
+}
+
+.menu{
+    float: left;
+    padding-left: 432px;
+}
+
+.menu li{
+    float: left;
+    line-height: 60px;
+    color: #fff;
+    margin-right: 40px;
+    text-transform: uppercase;
+}
+
+.main{
+    width: 100%;
+    height: calc(100% - 60px);
+    background: url(../img/boy.png) 90% 100%/auto 85% no-repeat ,url(../img/bg.jpg) center/cover no-repeat;
+}
+
+.title__container{
+    float: left;
+    margin: 432px 0px 0px 404px;
+    color: #2c384a;
+    text-align: center;
+}
+
+.title__container{
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.title__container h4{
+    margin-top: 40px;
+    font-size: 22px;
+    color: #79818d;
+}
+
+.title__container input{
+    height: 40px;
+    text-align: center;
+    border: 2px solid #6d7682;
+    background: none;
+    border-radius: 5px;
+    color: #6d7582;
+    font-size: 13px;
+    padding: 0 px 16px;
+    margin: 58px 14px 0px 14px;
+}
+
+/* второй слайд*/
+.about_me h2{
+    margin-top: 108px;
+    margin-left: 896px;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #263244;
+    letter-spacing: -0.05em;
+}
+
+
+.title_bar{
+    margin-top: 30px;
+    margin-left: 919px;
+    
+	width: 71px;
+	border-top: 5px solid #d17700;
+}
+
+
+.photka{
+    margin-top: 60px;
+    margin-left: 861px;
+}
+
+.about_me p{
+    display: block;  
+    padding: 0px 0px 0px 0px;
+    /*border: 2px solid #000;*/
+    
+    color: #3f495a;
+    font-size: 10px;
+    line-height: 12px;
+    
+    width: 735px;
+    height: 30px;
+    
+    margin: 25px 0px 0px 596px;
+
+    text-align: left;
+}
+
+.about_me a{
+    display: block;
+    width: 157px;
+    height: 34px;
+    
+    border: 2px solid #6f707e;
+    border-radius: 5px;
+    background: url(../img/download_icon.png) 10px /14px 13px no-repeat;
+
+    padding-top: 9px;
+    padding-left: 30px;
+    padding-right: 10px;
+    
+    margin-top: 30px;
+    margin-left: 886px;
+    margin-bottom: 100px;
+}
+.about_me span{
+    color: #6f707e;
+    letter-spacing: -0.05em;
+    font-weight: 570;
+}
+
+/* третий слайд*/
+.myskills h2{
+    padding-top: 104px;
+    margin-top: 14px;
+    margin-left: 882px;  
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #263244;
+    letter-spacing: -0.05em;
+}
+
+
+.Web_design{
+    float: left;
+    margin-left: 416px;
+    margin-top: -248px;
+    text-align: center; 
+    width: 212px;
+    
+}
+.Web_design img{
+    margin-bottom: 34px;
+}
+.Web_design h4{
+    margin-bottom: 14px;
+    color: #d17700;
+    font-weight: bold;
+}
+.Web_design p{
+    line-height: 1.5;
+}
+
+
+.Development{
+    float: left;
+    margin-left: 708px;
+    margin-top: -248px;
+    text-align: center; 
+    width: 212px;
+}
+.Development img{
+    margin-bottom: 34px;
+}
+.Development h4{
+    margin-bottom: 14px;
+    color: #d17700;
+    font-weight: bold;
+}
+.Development p{
+    line-height: 1.5;
+}
+
+
+.CEO-optimization{
+    float: left;
+    margin-left: 1000px;
+    margin-top: -248px;
+    text-align: center; 
+    width: 212px;
+}
+.CEO-optimization img{
+    margin-bottom: 34px;
+}
+.CEO-optimization h4{
+    margin-bottom: 14px;
+    color: #d17700;
+    font-weight: bold;
+}
+.CEO-optimization p{
+    line-height: 1.5;
+}
+
+
+
+.Marketing{
+    float: left;
+    margin-left: 1292px;
+    margin-top: -248px;
+    text-align: center; 
+    width: 212px;
+}
+.Marketing img{
+    margin-bottom: 34px;
+}
+.Marketing h4{
+    margin-bottom: 14px;
+    color: #d17700;
+    font-weight: bold;
+}
+.Marketing p{
+    line-height: 1.5;
+}
+
+
+
+.myskills{
+    width: 100%;
+    height: 532px;
+    background: url(../img/bg_skills.jpg) center/cover no-repeat;
+}
+
+
+/* 4 слайд */
+.keys h2{
+    padding-top: 104px;
+    margin-top: 14px;
+    margin-left: 912px;  
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #263244;
+    letter-spacing: -0.05em;
+}
+
+.keys p{
+    font-size: 12px;
+    font-weight: bold;
+    color: #3f495a;
+    
+    
+    margin: 36px 0px 40px 616px;
+}
+
+.keys img{
+    margin-left: 390px;
+    margin-bottom: 38px;
+}
+
+
+.Client {
+    float: left;
+    margin-left: 390px;
+    line-height: 1.5;
+}
+
+.client_h{
+    font-size: 17px;
+    color: #384354;
+}
+
+.client_company{
+    font-size: 12px;
+    color: #3f495a;
+    font-weight: 600;
+}
+
+.Name_project {
+    width: 852px;
+    margin-left: 674px;
+    margin-right: 400px;
+    line-height: 1.5;
+}
+
+.Project_h{
+    font-size: 17px;
+    color: #384354;
+}
+
+.Project_text{
+    font-size: 14px;
+    color: #3f495a;
+}
+
+.Website {
+    width: 188px;
+    margin-left: 390px;   
+    margin-top: -38px;
+    line-height: 1.5;
+}
+
+.Website_h{
+    font-size: 17px;
+    color: #384354;
+}
+
+.Website_site{
+    font-size: 12px;
+    color: #3f495a;
+    font-weight: bold;
+}
+
+.visit_site {
+    display: block;
+    width: 201px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 14px;
+    
+    border: 2px solid #63b5ae;
+    border-radius: 5px;
+    background-color: #63b5ae;
+    
+    margin-top: 18px;
+    margin-left: 390px;
+    margin-bottom: 100px;
+}
+
+.visit_site span{
+    color: #fff;
+    font-weight: bold;
+}
+
