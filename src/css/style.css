@@ -1,59 +1,63 @@
-body{
+body {
     font-family: Arial, sans-serif;
 }
 
-nav{
+nav {
     width: 100%;
     height: 60px;
     background: #344051;
 }
 
-.logo{
+.logo {
     color: #fff;
-    font-size: 28px;
+    font-size: 30px;
     line-height: 60px;
-    padding-left: 388px;
+    padding-left: 390px;
     float: left;
 }
 
-.menu{
+.menu {
     float: left;
-    padding-left: 432px;
+    padding-left: 300px;
 }
 
-.menu li{
+.menu li {
     float: left;
     line-height: 60px;
     color: #fff;
+    margin: 0 auto;
     margin-right: 40px;
     text-transform: uppercase;
 }
 
-.main{
+.main {
     width: 100%;
     height: calc(100% - 60px);
-    background: url(../img/boy.png) 90% 100%/auto 85% no-repeat ,url(../img/bg.jpg) center/cover no-repeat;
+    background: url(../img/boy.png) 90% 100%/auto 85% no-repeat, url(../img/bg.jpg) center/cover no-repeat;
 }
 
-.title__container{
+.title__container {
     float: left;
-    margin: 432px 0px 0px 404px;
+    margin: 304px 0px 0px 432px;
     color: #2c384a;
     text-align: center;
 }
 
-.title__container{
+.title__container {
     font-size: 60px;
+    text-align: center;
     font-weight: bold;
 }
 
-.title__container h4{
-    margin-top: 40px;
+.title__container h4 {
+    text-align: center;
+    margin-top: 30px;
     font-size: 22px;
     color: #79818d;
 }
 
-.title__container input{
+.title__container input {
+    width: 96px;
     height: 40px;
     text-align: center;
     border: 2px solid #6d7682;
@@ -62,276 +66,523 @@ nav{
     color: #6d7582;
     font-size: 13px;
     padding: 0 px 16px;
-    margin: 58px 14px 0px 14px;
+    margin: 50px 14px 0px 14px;
+    cursor: pointer;
 }
 
 /* второй слайд*/
-.about_me h2{
-    margin-top: 108px;
-    margin-left: 896px;
-    font-size: 24px;
+.about_me_container {
+    width: 740px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.about_me_container h2 {
+    text-align: center;
+    width: 160px;
+    font-size: 33px;
+    margin: 110px auto 30px;
+    padding-bottom: 5px;
     text-transform: uppercase;
+    color: ##263244;
     font-weight: bold;
-    color: #263244;
-    letter-spacing: -0.05em;
 }
 
-
-.title_bar{
-    margin-top: 30px;
-    margin-left: 919px;
-    
-	width: 71px;
-	border-top: 5px solid #d17700;
+.about_me_container hr {
+    height: 4px;
+    border: none;
+    background: #d17700;
+    width: 71px;
+    margin: 0 auto 60px;
 }
 
-
-.photka{
-    margin-top: 60px;
-    margin-left: 861px;
-}
-
-.about_me p{
-    display: block;  
-    padding: 0px 0px 0px 0px;
-    /*border: 2px solid #000;*/
-    
-    color: #3f495a;
-    font-size: 10px;
-    line-height: 12px;
-    
-    width: 735px;
-    height: 30px;
-    
-    margin: 25px 0px 0px 596px;
-
-    text-align: left;
-}
-
-.about_me a{
+.about_me_container img {
     display: block;
-    width: 157px;
+    margin: 0 auto;
+}
+
+.about_me_container p {
+    margin-top: 24px;
+    font-size: 17px;
+    color: #3f495a;
+}
+
+.about_me_container .Text2 {
+    margin-top: 45px;
+}
+
+.about_me_container a {
+    display: block;
+    width: 156px;
     height: 34px;
-    
+    text-align: center;
     border: 2px solid #6f707e;
     border-radius: 5px;
-    background: url(../img/download_icon.png) 10px /14px 13px no-repeat;
+    line-height: 30px;
+    margin: 40px auto 0;
+    font-size: 16px;
+    background: url(../img/download_icon.png) 6%/auto no-repeat;
+    padding-left: 18px;
+}
 
-    padding-top: 9px;
-    padding-left: 30px;
-    padding-right: 10px;
-    
-    margin-top: 30px;
-    margin-left: 886px;
-    margin-bottom: 100px;
-}
-.about_me span{
-    color: #6f707e;
-    letter-spacing: -0.05em;
-    font-weight: 570;
-}
+
 
 /* третий слайд*/
-.myskills h2{
-    padding-top: 104px;
-    margin-top: 14px;
-    margin-left: 882px;  
-    font-size: 24px;
+.myskills {
+    background: url(../img/bg_skills.jpg) center/cover no-repeat;
+}
+
+.myskills_container {
+    width: 1094px;
+    margin: 0 auto;
+    padding-top: 110px;
+    padding-bottom: 96px;
+}
+
+.myskills_container h2 {
+    text-align: center;
+    width: 230px;
+    font-size: 33px;
+    margin: 0px auto 30px;
+    padding-bottom: 5px;
     text-transform: uppercase;
     font-weight: bold;
-    color: #263244;
-    letter-spacing: -0.05em;
 }
 
+.myskills_container hr {
+    height: 4px;
+    border: none;
+    background: #d17700;
+    width: 80px;
+    margin: 0 auto 100px;
+}
 
-.Web_design{
+.skills_item {
     float: left;
-    margin-left: 416px;
-    margin-top: -248px;
-    text-align: center; 
-    width: 212px;
-    
-}
-.Web_design img{
-    margin-bottom: 34px;
-}
-.Web_design h4{
-    margin-bottom: 14px;
-    color: #d17700;
-    font-weight: bold;
-}
-.Web_design p{
-    line-height: 1.5;
+    width: 200px;
+    text-align: center;
+    margin: 0px 36px;
 }
 
-
-.Development{
-    float: left;
-    margin-left: 708px;
-    margin-top: -248px;
-    text-align: center; 
-    width: 212px;
-}
-.Development img{
-    margin-bottom: 34px;
-}
-.Development h4{
-    margin-bottom: 14px;
-    color: #d17700;
-    font-weight: bold;
-}
-.Development p{
-    line-height: 1.5;
+.skills_item img {
+    margin-bottom: 40px;
+    height: 40px;
 }
 
-
-.CEO-optimization{
-    float: left;
-    margin-left: 1000px;
-    margin-top: -248px;
-    text-align: center; 
-    width: 212px;
-}
-.CEO-optimization img{
-    margin-bottom: 34px;
-}
-.CEO-optimization h4{
-    margin-bottom: 14px;
-    color: #d17700;
-    font-weight: bold;
-}
-.CEO-optimization p{
-    line-height: 1.5;
+.skills_item h4 {
+    font-size: 18px;
+    color: #cf7600;
+    margin-bottom: 20px;
 }
 
-
-
-.Marketing{
-    float: left;
-    margin-left: 1292px;
-    margin-top: -248px;
-    text-align: center; 
-    width: 212px;
-}
-.Marketing img{
-    margin-bottom: 34px;
-}
-.Marketing h4{
-    margin-bottom: 14px;
-    color: #d17700;
-    font-weight: bold;
-}
-.Marketing p{
-    line-height: 1.5;
+.skills_item p {
+    font-size: 16px;
+    color: #3f495a;
 }
 
-
-
-.myskills{
-    width: 100%;
-    height: 532px;
-    background: url(../img/bg_skills.jpg) center/cover no-repeat;
+.clear {
+    clear: both;
 }
 
 
 /* 4 слайд */
-.keys h2{
-    padding-top: 104px;
-    margin-top: 14px;
-    margin-left: 912px;  
-    font-size: 24px;
+.keys {
+    padding-top: 110px;
+    padding-bottom: 122px;
+}
+
+.keys_container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.keys_container h2 {
+    text-align: center;
+    width: 214px;
+    font-size: 33px;
+    margin: 0px auto 30px;
+    padding-bottom: 5px;
     text-transform: uppercase;
     font-weight: bold;
-    color: #263244;
-    letter-spacing: -0.05em;
 }
 
-.keys p{
-    font-size: 12px;
-    font-weight: bold;
+.keys_container hr {
+    height: 4px;
+    width: 80px;
+    background: #d17700;
+    margin: 0 auto 40px;
+}
+
+.keys_subscription {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 40px;
     color: #3f495a;
-    
-    
-    margin: 36px 0px 40px 616px;
 }
 
-.keys img{
-    margin-left: 390px;
-    margin-bottom: 38px;
+.keys_container img {
+    width: 100%;
+    margin-bottom: 40px;
 }
 
-
-.Client {
+.keys_left {
+    width: 200px;
     float: left;
-    margin-left: 390px;
-    line-height: 1.5;
+    margin-right: 82px;
 }
 
-.client_h{
+.keys_left h4 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.keys_left p {
     font-size: 17px;
-    color: #384354;
+    margin: 16px 0;
 }
 
-.client_company{
-    font-size: 12px;
+.keys_left a {
+    display: block;
+    margin-top: 25px;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    background: #63b5ae;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.keys_left span {
+    color: #fff;
+}
+
+.keys_right h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.keys_right p {
+    font-size: 20px;
     color: #3f495a;
+    line-height: 1.2;
+}
+
+.clear {
+    clear: both;
+}
+
+
+
+/* 5 слайд */
+.calculation {
+    padding-bottom: 150px;
+}
+
+.calculation_container {
+    width: 1080px;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    margin: 0 auto;
+    padding-top: 74px;
+}
+
+.calculation_container h2 {
+    text-align: center;
+    width: 360px;
+    font-size: 37px;
+    margin: 0px auto 60px;
+    font-weight: bold;
+}
+
+.cost {
+    width: 890px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.cost h3 {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.mySelect {
+    width: 890px;
+    height: 57px;
+    background: #eeeeee;
+    margin-bottom: 48px;
+    padding-left: 24px;
+    line-height: 57px;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(../img/select.png) 98% 54%/auto no-repeat, #eee;
+}
+
+.cost hr {
+    height: 2px;
+    width: 100%;
+    border: none;
+    background: #eee;
+    margin: 0 auto 24px;
+}
+
+.days,
+.price {
+    margin-bottom: 18px;
+    font-size: 21px;
+}
+
+.Total .text {
+    float: left;
+}
+
+.Total .digit {
+    font-size: 29px;
+    float: right;
+}
+
+
+/* 6 слайд */
+.statistics {
+    background: url(../img/bg_statics.jpg) center/cover no-repeat;
+}
+
+.statistics_container {
+    width: 1024px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.statistics_container h2 {
+    text-align: center;
+    width: 400px;
+    font-size: 33px;
+    margin: 0px auto 30px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    padding-top: 100px;
+    font-weight: bold;
+}
+
+.statistics_container hr {
+    height: 4px;
+    border: none;
+    background: #d17700;
+    width: 80px;
+    margin: 0 auto 90px;
+}
+
+.statistics_item {
+    display: inline-block;
+    width: 213px;
+    text-align: center;
+}
+
+.statistics_item img {
+    height: 52px;
+}
+
+.statistics_item h4 {
+    font-size: 37px;
+    font-weight: 800;
+    margin: 34px 0;
+}
+
+.statistics_item p {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
     font-weight: 600;
 }
 
-.Name_project {
-    width: 852px;
-    margin-left: 674px;
-    margin-right: 400px;
-    line-height: 1.5;
+.margin-right {
+    margin-right: 53px;
 }
 
-.Project_h{
-    font-size: 17px;
-    color: #384354;
+
+/*7 слайд */
+.reviews_container{
+    width: 700px;
+    margin-top: 110px;
+    margin: 0 auto;
+    padding-bottom: 140px;
 }
 
-.Project_text{
-    font-size: 14px;
-    color: #3f495a;
-}
-
-.Website {
-    width: 188px;
-    margin-left: 390px;   
-    margin-top: -38px;
-    line-height: 1.5;
-}
-
-.Website_h{
-    font-size: 17px;
-    color: #384354;
-}
-
-.Website_site{
-    font-size: 12px;
-    color: #3f495a;
-    font-weight: bold;
-}
-
-.visit_site {
-    display: block;
-    width: 201px;
-    height: 44px;
-    line-height: 44px;
+.reviews_container h2{
     text-align: center;
-    font-size: 14px;
-    
-    border: 2px solid #63b5ae;
-    border-radius: 5px;
-    background-color: #63b5ae;
-    
-    margin-top: 18px;
-    margin-left: 390px;
-    margin-bottom: 100px;
-}
-
-.visit_site span{
-    color: #fff;
+    width: 390px;
+    font-size: 33px;
+    margin: 0px auto 30px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    padding-top: 100px;
     font-weight: bold;
 }
 
+.reviews_container hr{
+    height: 4px;
+    border: none;
+    background: #d17700;
+    width: 80px;
+    margin: 0 auto 60px;
+}
+
+.review{
+    text-align: center;
+}
+
+.review img{
+    margin-bottom: 36px;
+}
+
+.review_text{
+    font-size: 17px;
+    line-height: 24px;
+    margin-bottom: 36px;
+}
+
+.review_author{
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.review_author span{
+    font-weight: 800;
+}
+
+/* 8 слайд */
+.MyContacts {
+    background: url(../img/bg_contacs.jpg) center/cover no-repeat;
+    color: white;
+}
+
+.MyContacts_container{
+    width: 740px;
+    margin: 0 auto;
+    padding-bottom: 68px;
+}
+
+.MyContacts_container h2{
+    text-align: center;
+    width: 390px;
+    font-size: 33px;
+    margin: 0 auto 30px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    padding-top: 100px;
+}
+
+.MyContacts_container hr{
+    height: 4px;
+    border: none;
+    background: #d17700;
+    width: 80px;
+    margin: 0 auto 32px;
+}
+
+.contacts_sub{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 48px;
+}
+
+.contacts_data_item{
+    float: left;
+    width: 154px;
+    text-align: center;
+    margin: 0 45px;
+}
+
+.contacts_data_item img{
+    height: 24px;
+    margin-bottom: 16px;
+}
+
+.contacts_data_item p{
+     font-size: 16px;
+}
+
+.MyContacts_container h3{
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 46px;
+    font-size: 21px;
+    text-transform: uppercase;
+}
+
+.contacts_inputs input{
+    display: block;
+    width: 352px;
+    float: left;
+    height: 34px;
+    padding-left: 14px;
+    margin-bottom: 14px;
+    background: rgba(210, 214, 220, 0.93);
+    font-size: 16px;
+}
+
+.contacts_inputs .Email{
+    float: right;
+}
+
+.MyContacts_container input[type="Submit"]{
+    display: block;
+    margin: 0 auto;
+    background: none;
+    color: white;
+    border: 2px solid white;
+    height: 46px;
+    width: 124px;
+    border-radius: 8px;
+    font-size: 20px;
+    margin-bottom: 76px;
+}
+
+.MyContacts_container textarea{
+    display: block;
+    width: 100%;
+    resize: none;
+    padding-top: 10px;
+    padding-left: 15px;
+    background: rgba(220, 224, 230, 0.93);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.contacts_social{
+    width: 422px;
+    margin: 0 auto;
+}
+
+.contacts_social a{
+    display: block;
+    float: left;
+    margin: 0 20px;
+}
+
+.contacts_social img{
+    height: 30px;
+}
+
+/* 9 слайд */
+.map img{
+    display: block;
+    width: 100%;
+}
+
+.footer{
+    background: #354051;
+    height: 94px;
+}
+
+.footer_container{
+    text-align: center;
+    line-height: 94px;
+    color: white;
+}
