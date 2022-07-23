@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/animate.min.css">
 
 </head>
 
@@ -23,258 +24,259 @@
             <div class="logo">Максим Ким</div>
             <div class="menu">
                 <ul>
-                    <li>Обо мне</li>
-                    <li>Услуги</li>
-                    <li>Кейсы</li>
-                    <li>Прайс</li>
-                    <li>Отзывы</li>
-                    <li>Контакты</li>
+                    <li><a href="#">Обо мне</a></li>
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">Кейсы</a></li>
+                    <li><a href="#">Прайс</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="#">Контакты</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <div class="main">
-        <div class="title__container">
-            <h1>Привет <br> Я Максим Ким</h1>
-            <h4>Фулл стек веб-разработчик</h4>
-            <input type="submit" value="Обо мне">
-            <input type="submit" value="Мои работы">
-        </div>
-    </div>
-
-    <!-- 2 слайд -->
-    <div class="about_me">
-        <div class="about_me_container">
-            <h2>Обо мне</h2>
-            <hr>
-            <img src="img/photka.png" alt="Тут должна быть фоточка...">
-
-            <p class="Text1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero atque dolores eligendi eius, reiciendis iusto pariatur tenetur incidunt beatae quidem porro minus perspiciatis explicabo ullam dicta itaque, mollitia consequuntur nemo.
-            </p>
-
-            <p class="Text2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima voluptates delectus nihil ullam odio hic, neque explicabo sed animi ratione aliquid reiciendis eveniet. Aut, numquam!
-            </p>
-
-            <a download="Summart.txt" href="files/summary.txt">Скачать резюме</a>
-        </div>
-    </div>
-
-
-    <!-- 3 слайд -->
-    <div class="myskills">
-        <div class="myskills_container">
-            <h2>Что я умею</h2>
-            <hr>
-            <div class="skills_item">
-                <img src="img/notebook.png" alt="Картинка где-то потерялась :(">
-                <h4>Веб-дизайн</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque soluta dicta cumque quidem minus laboriosam labore iusto.</p>
+    <main>
+        <section class="main">
+            <div class="title__container">
+                <h1>Привет <br> Я Максим Ким</h1>
+                <h4>Фулл стек веб-разработчик</h4>
+                <input type="button" value="Обо мне">
+                <input type="button" value="Мои работы">
             </div>
+        </section>
 
-            <div class="skills_item">
-                <img src="img/sign.png" alt="Картинка где-то потерялась :(">
-                <h4>Разработка</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, nemo?</p>
-            </div>
-
-            <div class="skills_item">
-                <img src="img/Racket.png" alt="Картинка где-то потерялась :(">
-                <h4>СЕО-Оптимизация</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-
-            <div class="skills_item">
-                <img src="img/gramophone.png" alt="Картинка где-то потерялась :(">
-                <h4>Маркетинг</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro nemo rem tempora!</p>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-
-    <!-- 4 слайд -->
-    <div class="keys">
-        <div class="keys_container">
-            <h2>Кейсы</h2>
-            <hr>
-            <p class="keys_subscription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia recusandae sapiente ab illo sed, animi saepe. Laboriosam voluptate!</p>
-            <img src="img/keys_photka.jpg.png" alt="Картинка где-то потерялась :(">
-
-            <div class="keys_left">
-                <h4>Client:</h4>
-                <p>Какая-то компания</p>
-                <h4>Website:</h4>
-                <p>https://somedomain.ru</p>
-                <a href="https://yandex.ru/" target="_blank"><span>Visit Live Site</span></a>
-            </div>
-
-            <div class="keys_right">
-                <h4>Название проекта</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione accusantium similique minus fugit necessitatibus. Itaque quia harum, expedita, odit temporibus, accusantium eaque nesciunt voluptatibus officiis nostrum sint rerum quisquam? Iste blanditiis ratione culpa.
-                </p>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-
-    <!-- 5 слайд -->
-    <div class="calculation">
-        <div class="calculation_container">
-            <h2>Расчёт стоимости</h2>
-
-            <div class="cost">
-                <h3>Тип сайта</h3>
-                <select class="mySelect" name="type" id="type_site">
-                    <option value="1" selected disabled hidden>Выберите пункт...</option>
-                    <option value="2">Визитка</option>
-                    <option value="3">Корпоративный</option>
-                    <option value="4">Интернет-магазин</option>
-                </select>
-
-                <h3>Дизайн</h3>
-                <select class="mySelect" name="type" id="design">
-                    <option value="1" selected disabled hidden>Выберите пункт...</option>
-                    <option value="2">Деловой</option>
-                    <option value="2">Ретро</option>
-                    <option value="3">Минимализм</option>
-                </select>
-
-                <h3>Адаптивность</h3>
-                <select class="mySelect" name="type" id="adaptability">
-                    <option value="1" selected disabled hidden>Выберите пункт...</option>
-                    <option value="2">Полная (Все устройства)</option>
-                    <option value="3">Только ПК</option>
-                    <option value="4">Только смартфоны</option>
-                </select>
+        <!-- 2 слайд -->
+        <div class="about_me">
+            <div class="about_me_container">
+                <h2 class="h2 animate__animated animate__backInDown animate__slow">Обо мне</h2>
                 <hr>
+                <img src="img/photka.png" alt="Тут должна быть фоточка...">
 
-                <div class="Total">
-                    <div class="days">
-                        <p class="text">Сроки</p>
-                        <p class="digit">0</p>
-                        <div class="clear"></div>
-                    </div>
+                <p class="Text1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero atque dolores eligendi eius, reiciendis iusto pariatur tenetur incidunt beatae quidem porro minus perspiciatis explicabo ullam dicta itaque, mollitia consequuntur nemo.
+                </p>
 
-                    <div class="price">
-                        <p class="text">Стоимость</p>
-                        <p class="digit">0</p>
-                        <div class="clear"></div>
-                    </div>
-                </div>
+                <p class="Text2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima voluptates delectus nihil ullam odio hic, neque explicabo sed animi ratione aliquid reiciendis eveniet. Aut, numquam!
+                </p>
+
+                <a download="Summart.txt" href="files/summary.txt">Скачать резюме</a>
             </div>
         </div>
-    </div>
 
 
-    <!-- 6 слайд -->
-    <div class="statistics">
-        <div class="statistics_container">
-            <h2>Немного статистики</h2>
-            <hr>
-            <div class="statistics_item margin-right">
-                <img src="img/smile.png" alt="Картинка где-то потерялась :(">
-                <h4>120</h4>
-                <p>Cчастливых клиентов</p>
-            </div>
-
-            <div class="statistics_item margin-right">
-                <img src="img/parentheses.png" alt="Картинка где-то потерялась :(">
-                <h4>4600</h4>
-                <p>Часов работы</p>
-            </div>
-
-            <div class="statistics_item margin-right">
-                <img src="img/check_mark.png" alt="Картинка где-то потерялась :(">
-                <h4>340</h4>
-                <p>Проектов завершено</p>
-            </div>
-
-            <div class="statistics_item fourth">
-                <img src="img/cup.png" alt="Картинка где-то потерялась :(">
-                <h4>23</h4>
-                <p>Наград получено</p>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 7 слайд -->
-    <div class="reviews">
-        <div class="reviews_container">
-            <h2>Отзывы</h2>
-            <hr>
-            <div class="review">
-                <img src="img/photka1_review.png" alt="Картинка где-то потерялась :(">
-                <p class="review_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio consequatur ex velit! Deleniti.</p>
-
-                <p class="review_author"><span>Михаил</span>, Ген. Директор ПАО &ldquo;Газпром&rdquo;</p>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 8 слайд -->
-    <div class="MyContacts">
-        <div class="MyContacts_container">
-            <h2>Мои контакты</h2>
-            <hr>
-            <p class="contacts_sub">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, facere</p>
-
-            <div class="contacts_data">
-                <div class="contacts_data_item">
-                    <img src="img/geo.png" alt="Картинка где-то потерялась :(">
-                    <p>Санкт-Петербург, Невский проспект 11</p>
-                </div>
-                <div class="contacts_data_item">
-                    <img src="img/convert.png" alt="Картинка где-то потерялась :(">
-                    <p>info@companyname.com</p>
-                </div>
-                <div class="contacts_data_item">
-                    <img src="img/telephone.png" alt="Картинка где-то потерялась :(">
-                    <p>+7 999 999-99-99</p>
-                </div>
-            </div>
-            <div class="clear"></div>
-
-            <h3>Оставьте мне сообщение</h3>
-            <form action="#">
-                <div class="contacts_inputs">
-                    <input type="text" placeholder="Имя">
-                    
-                    <input class="Email" type="text" placeholder="Email">
-                    
-                    <div class="clear"></div>
+        <!-- 3 слайд -->
+        <div class="myskills">
+            <div class="myskills_container">
+                <h2 class="h2 animate__animated animate__backInDown animate__slow">Что я умею</h2>
+                <hr>
+                <div class="skills_item">
+                    <img src="img/notebook.png" alt="Картинка где-то потерялась :(">
+                    <h4>Веб-дизайн</h4>
+                    <p>Lorem ipsum dolorh2  sit amet, consectetur adipisicing elit. Eaque soluta dicta cumque quidem minus laboriosam labore iusto.</p>
                 </div>
 
-                <textarea placeholder="Сообщение" name="message" id="messageText" cols="30" rows="10"></textarea>
-                <input type="Submit" value="Отправить">
-            </form>
-            
-            <div class="contacts_social">
-                <a href="#"><img src="img/fb.png" alt=""></a>
-                <a href="#"><img src="img/twitter.png" alt=""></a>
-                <a href="#"><img src="img/ball.png" alt=""></a>
-                <a href="#"><img src="img/kitty.png" alt=""></a>
-                <a href="#"><img src="img/inst.png" alt=""></a>
-                <a href="#"><img src="img/in.png" alt=""></a>
+                <div class="skills_item">
+                    <img src="img/sign.png" alt="Картинка где-то потерялась :(">
+                    <h4>Разработка</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, nemo?</p>
+                </div>
+
+                <div class="skills_item">
+                    <img src="img/Racket.png" alt="Картинка где-то потерялась :(">
+                    <h4>СЕО-Оптимизация</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+
+                <div class="skills_item">
+                    <img src="img/gramophone.png" alt="Картинка где-то потерялась :(">
+                    <h4>Маркетинг</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro nemo rem tempora!</p>
+                </div>
                 <div class="clear"></div>
             </div>
         </div>
-    </div>
 
+        <!-- 4 слайд -->
+        <div class="keys">
+            <div class="keys_container">
+                <h2 class="h2 animate__animated animate__backInDown animate__slow">Кейсы</h2>
+                <hr>
+                <p class="keys_subscription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia recusandae sapiente ab illo sed, animi saepe. Laboriosam voluptate!</p>
+                <img src="img/keys_photka.jpg.png" alt="Картинка где-то потерялась :(">
 
+                <div class="keys_left">
+                    <h4>Client:</h4>
+                    <p>Какая-то компания</p>
+                    <h4>Website:</h4>
+                    <p>https://somedomain.ru</p>
+                    <a href="https://yandex.ru/" target="_blank"><span>Visit Live Site</span></a>
+                </div>
 
-    <!-- 9 слайд -->
-    <div class="map">
-        <img src="img/map.png" alt="Карта не доступна, возможно Вы на другой планете">
-    </div>
-    <div class="footer">
-        <div class="footer_container">
-            <p>Copyright 2021 Андрей Браун. Design by Web</p>
+                <div class="keys_right">
+                    <h4>Название проекта</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione accusantium similique minus fugit necessitatibus. Itaque quia harum, expedita, odit temporibus, accusantium eaque nesciunt voluptatibus officiis nostrum sint rerum quisquam? Iste blanditiis ratione culpa.
+                    </p>
+                </div>
+                <div class="clear"></div>
+            </div>
         </div>
-    </div>
 
+        <!-- 5 слайд -->
+        <div class="calculation animate__animated animate__bounceInDown animate__slow">
+            <div class="calculation_container">
+                <h2>Расчёт стоимости</h2>
+
+                <div class="cost">
+                    <h3>Тип сайта</h3>
+                    <select class="mySelect" name="type" id="type_site">
+                        <option value="1" selected disabled hidden>Выберите пункт...</option>
+                        <option value="2">Визитка</option>
+                        <option value="3">Корпоративный</option>
+                        <option value="4">Интернет-магазин</option>
+                    </select>
+
+                    <h3>Дизайн</h3>
+                    <select class="mySelect" name="type" id="design">
+                        <option value="1" selected disabled hidden>Выберите пункт...</option>
+                        <option value="2">Деловой</option>
+                        <option value="2">Ретро</option>
+                        <option value="3">Минимализм</option>
+                    </select>
+
+                    <h3>Адаптивность</h3>
+                    <select class="mySelect" name="type" id="adaptability">
+                        <option value="1" selected disabled hidden>Выберите пункт...</option>
+                        <option value="2">Полная (Все устройства)</option>
+                        <option value="3">Только ПК</option>
+                        <option value="4">Только смартфоны</option>
+                    </select>
+                    <hr>
+
+                    <div class="Total">
+                        <div class="days">
+                            <p class="text">Сроки</p>
+                            <p class="digit">0</p>
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="price">
+                            <p class="text">Стоимость</p>
+                            <p class="digit">0</p>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 6 слайд -->
+        <div class="statistics">
+            <div class="statistics_container">
+                <h2 class="h2 animate__animated animate__backInDown animate__slow">Немного статистики</h2>
+                <hr>
+                <div class="statistics_item margin-right">
+                    <img src="img/smile.png" alt="Картинка где-то потерялась :(">
+                    <h4>120</h4>
+                    <p>Cчастливых клиентов</p>
+                </div>
+
+                <div class="statistics_item margin-right">
+                    <img src="img/parentheses.png" alt="Картинка где-то потерялась :(">
+                    <h4>4600</h4>
+                    <p>Часов работы</p>
+                </div>
+
+                <div class="statistics_item margin-right">
+                    <img src="img/check_mark.png" alt="Картинка где-то потерялась :(">
+                    <h4>340</h4>
+                    <p>Проектов завершено</p>
+                </div>
+
+                <div class="statistics_item fourth">
+                    <img src="img/cup.png" alt="Картинка где-то потерялась :(">
+                    <h4>23</h4>
+                    <p>Наград получено</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 7 слайд -->
+        <div class="reviews">
+            <div class="reviews_container">
+                <h2 class="h2 animate__animated animate__backInDown animate__slow">Отзывы</h2>
+                <hr>
+                <div class="review">
+                    <img src="img/photka1_review.png" alt="Картинка где-то потерялась :(">
+                    <p class="review_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio consequatur ex velit! Deleniti.</p>
+
+                    <p class="review_author"><span>Михаил</span>, Ген. Директор ПАО &ldquo;Газпром&rdquo;</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 8 слайд -->
+        <div class="MyContacts">
+            <div class="MyContacts_container">
+                <h2 class="h2 animate__animated animate__backInDown animate__slow">Мои контакты</h2>
+                <hr>
+                <p class="contacts_sub">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, facere</p>
+
+                <div class="contacts_data">
+                    <div class="contacts_data_item">
+                        <img src="img/geo.png" alt="Картинка где-то потерялась :(">
+                        <p>Санкт-Петербург, Невский проспект 11</p>
+                    </div>
+                    <div class="contacts_data_item">
+                        <img src="img/convert.png" alt="Картинка где-то потерялась :(">
+                        <p>info@companyname.com</p>
+                    </div>
+                    <div class="contacts_data_item">
+                        <img src="img/telephone.png" alt="Картинка где-то потерялась :(">
+                        <p>+7 999 999-99-99</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+
+                <h3>Оставьте мне сообщение</h3>
+                <form action="#" class="animate__animated animate__fadeIn animate__slow animate__delay-4s">
+                    <div class="contacts_inputs">
+                        <input type="text" placeholder="Имя">
+
+                        <input class="Email" type="text" placeholder="Email">
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <textarea placeholder="Сообщение" name="message" id="messageText" cols="30" rows="10"></textarea>
+                    <input type="Submit" value="Отправить">
+                </form>
+
+                <div class="contacts_social">
+                    <a href="#"><img src="img/fb.png" alt=""></a>
+                    <a href="#"><img src="img/twitter.png" alt=""></a>
+                    <a href="#"><img src="img/ball.png" alt=""></a>
+                    <a href="#"><img src="img/kitty.png" alt=""></a>
+                    <a href="#"><img src="img/inst.png" alt=""></a>
+                    <a href="#"><img src="img/in.png" alt=""></a>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- 9 слайд -->
+        <div class="map">
+            <img src="img/map.png" alt="Карта не доступна, возможно Вы на другой планете">
+        </div>
+        <div class="footer">
+            <div class="footer_container">
+                <p>Copyright 2021 Андрей Браун. Design by Web</p>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>
