@@ -11,6 +11,44 @@ body {
     font-family: 'FranklinGot', 'Arial', sans-serif;
 }
 
+
+.element-animationH{
+    opacity: 0;
+}
+
+.element-animationH.show-animationH{
+    opacity: 1;
+    transition: opacity 3s;
+}
+
+.element-animationImgText{
+    opacity: 0;
+}
+
+.element-animationImgText.show-animationImgText{
+    
+    -webkit-animation: skills_item_show 2s ease forwards;
+    -o-animation: skills_item_show 2s ease forwards;
+    animation: skills_item_show 2s ease forwards;
+    
+    -webkit-animation-delay: 1.4s;
+    -o-animation-delay: 1.4s;
+    animation-delay: 1.4s;
+    
+}
+
+@keyframes skills_item_show{
+    from{
+        opacity: 0;
+        margin-left: -700px;
+    }
+    to{
+        opacity: 1;
+        transition: opacity 3s;
+    }
+}
+
+
 nav {
     width: 100%;
     height: 60px;
@@ -125,7 +163,7 @@ main {
         position: relative;
         z-index: 7;
         
-        -webkit-animation: titlemove 1s ease forwards;
+    -webkit-animation: titlemove 1s ease forwards;
     -o-animation: titlemove 1s ease forwards;
     animation: titlemove 1s ease forwards;
 
@@ -247,10 +285,14 @@ main {
 }
 
 
-/* 2 cлайд*/
+/* 2 cлайд */
+
+
+
 
 .about_me_container{
     padding-bottom: 100px;
+    opacity 0;
 }
 .about_me_container h2 {
     font-size: 33px;
@@ -266,15 +308,7 @@ main {
     background: #d17700;
     width: 71px;
     margin: 0 auto 60px;
-    
-    opacity: 0;
-    
-    -webkit-animation: hr 1.5s ease forwards;
-    -o-animation: hr 1.5s ease forwards;
-    animation: hr 1.5s ease forwards;
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
+    border-top: none;
 }
 .about_me_container p {
     font-size: 17px;
@@ -295,57 +329,13 @@ main {
     padding-left: 18px;
     color:black;
     text-decoration: none;
-
-    opacity: 0;
-    
-    -webkit-animation: show_text 2s forwards;
-    -o-animation: show_text 2s forwards;
-    animation: show_text 2s forwards;
-    
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
     
     transform: scale(1); 
-}
-
-.about_me_container img {
-    opacity: 0;
-    
-    -webkit-animation: img_about_me 2s forwards;
-    -o-animation: img_about_me 2s forwards;
-    animation: img_about_me 2s forwards;
-    
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
 }
 
 .about_me_container p {
     font-size: 17px;
     color: #3f495a;
-    
-    opacity: 0;
-    
-    -webkit-animation: show_text 2s forwards;
-    -o-animation: show_text 2s forwards;
-    animation: show_text 2s forwards;
-    
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
-}
-
-.about_me_container .Text2 {
-    opacity: 0;
-    
-    -webkit-animation: show_text 2s forwards;
-    -o-animation: show_text 2s forwards;
-    animation: show_text 2s forwards;
-    
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
 }
 
 .about_me_container a:hover{
@@ -355,37 +345,17 @@ main {
 
 .about_me_container a:active{
     transform: scale(1.1);
+    color: #fa8b28;
 }
     
-@keyframes hr{
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;       
-    }
+li .active{
+    color: #fa8b28 !important;
 }
-
-@keyframes img_about_me{
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-}
-
-@keyframes show_text{
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;       
-    }
-} 
 
 
 /* третий слайд*/
+
+
 
 .myskills {
     background: url(../img/bg_skills.jpg) center/cover no-repeat;
@@ -412,14 +382,6 @@ main {
     width: 80px;
     margin: 0 auto 100px;
     
-    opacity: 0;
-    
-    -webkit-animation: hr 1.5s ease forwards;
-    -o-animation: hr 1.5s ease forwards;
-    animation: hr 1.5s ease forwards;
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
 }
 
 .skills_item img {
@@ -442,25 +404,6 @@ main {
     float: left;
     text-align: center;
 
-    opacity: 0;
-    
-    -webkit-animation: skills_item_show 2s ease forwards;
-    -o-animation: skills_item_show 2s ease forwards;
-    animation: skills_item_show 2s ease forwards;
-    
-    -webkit-animation-delay: 2.4s;
-    -o-animation-delay: 2.4s;
-    animation-delay: 2.4s;
-}
-
-@keyframes skills_item_show{
-    from{
-        opacity: 0;
-        margin-left: -700px;
-    }
-    to{
-        opacity: 1;
-    }
 }
 
 
@@ -487,16 +430,7 @@ main {
     width: 80px;
     background: #d17700;
     margin: 0 auto 40px;
-    
-    opacity: 0;
-    
-    -webkit-animation: hr 1.5s ease forwards;
-    -o-animation: hr 1.5s ease forwards;
-    animation: hr 1.5s ease forwards;
-    
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
+    border-top: none;
 }
 
 .keys_subscription {
@@ -505,46 +439,15 @@ main {
     margin-bottom: 40px;
     color: #3f495a;
     
-    opacity: 0;
-    
-    -webkit-animation: show_text 2s forwards;
-    -o-animation: show_text 2s forwards;
-    animation: show_text 2s forwards;
-    
-    -webkit-animation-delay: 2.4s;
-    -o-animation-delay: 2.4s;
-    animation-delay: 2.4s;
 }
-
 
 
 .keys_container img {
     width: 100%;
     margin-bottom: 40px;
     
-    opacity: 0;
-    
-    -webkit-animation: show_text 2.2s forwards;
-    -o-animation: show_text 2.2s forwards;
-    animation: show_text 2.2s forwards;
-    
-    -webkit-animation-delay: 2.8s;
-    -o-animation-delay: 2.8s;
-    animation-delay: 2.8s;
 }
 
-.keys_left {
-    opacity: 0;
-    
-    -webkit-animation: show_text 2.2s forwards;
-    -o-animation: show_text 2.2s forwards;
-    animation: show_text 2.2s forwards;
-    
-    -webkit-animation-delay: 3.2s;
-    -o-animation-delay: 3.2s;
-    animation-delay: 3.2s;
-
-}
 
 .keys_left h4 {
     font-size: 25px;
@@ -583,17 +486,7 @@ main {
     color: #fff;
 }
 
-.keys_right{     
-    opacity: 0;
-    
-    -webkit-animation: show_text 2.2s forwards;
-    -o-animation: show_text 2.2s forwards;
-    animation: show_text 2.2s forwards;
-    
-    -webkit-animation-delay: 3.2s;
-    -o-animation-delay: 3.2s;
-    animation-delay: 3.2s;    
-}
+
 
 .keys_right h4 {
     font-size: 25px;
@@ -739,31 +632,13 @@ main {
     background: #d17700;
     width: 80px;
     margin: 0 auto 90px;
-    
-    opacity: 0;
-    
-    -webkit-animation: hr 1.5s ease forwards;
-    -o-animation: hr 1.5s ease forwards;
-    animation: hr 1.5s ease forwards;
-    
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
+
 }
 
 .statistics_item {
     display: inline-block;
     text-align: center;
-    
-    opacity: 0;
-    
-    -webkit-animation: statistics_item_show 2s ease forwards;
-    -o-animation: statistics_item_show 2s ease forwards;
-    animation: statistics_item_show 2s ease forwards;
-    
-    -webkit-animation-delay: 2.4s;
-    -o-animation-delay: 2.4s;
-    animation-delay: 2.4s;
+
 }
 
 @keyframes statistics_item_show{
@@ -811,7 +686,6 @@ main {
     font-weight: bold;
 }
 
-
 .reviews_container hr{
     height: 4px;
     border: none;
@@ -819,15 +693,7 @@ main {
     width: 80px;
     margin: 0 auto 60px;
     
-    opacity: 0;
-    
-    -webkit-animation: hr 1.5s ease forwards;
-    -o-animation: hr 1.5s ease forwards;
-    animation: hr 1.5s ease forwards;
-    
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
+
 }
 
 .review{
@@ -836,16 +702,6 @@ main {
 
 .review img{
     margin-bottom: 36px;
-    
-    opacity: 0;
-    
-    -webkit-animation: show_text 2s forwards;
-    -o-animation: show_text 2s forwards;
-    animation: show_text 2s forwards;
-    
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
 }
 
 .review_text{
@@ -853,30 +709,13 @@ main {
     line-height: 24px;
     margin-bottom: 36px;
     
-    opacity: 0;
-    
-    -webkit-animation: show_text 2s forwards;
-    -o-animation: show_text 2s forwards;
-    animation: show_text 2s forwards;
-    
-    -webkit-animation-delay: 2.4s;
-    -o-animation-delay: 2.4s;
-    animation-delay: 2.4s;
+
 }
 
 .review_author{
     font-size: 16px;
     line-height: 24px;
     
-    opacity: 0;
-    
-    -webkit-animation: show_text 2s forwards;
-    -o-animation: show_text 2s forwards;
-    animation: show_text 2s forwards;
-    
-    -webkit-animation-delay: 2.8s;
-    -o-animation-delay: 2.8s;
-    animation-delay: 2.8s;
 }
 
 .review_author span{
@@ -911,16 +750,6 @@ main {
     background: #d17700;
     width: 80px;
     margin: 0 auto 32px;
-    
-    opacity: 0;
-    
-    -webkit-animation: hr 1.5s ease forwards;
-    -o-animation: hr 1.5s ease forwards;
-    animation: hr 1.5s ease forwards;
-    
-    -webkit-animation-delay: 2s;
-    -o-animation-delay: 2s;
-    animation-delay: 2s;
 }
 
 .contacts_sub{
@@ -941,16 +770,6 @@ main {
 
 .contacts_data_item{
     text-align: center;
-    
-    opacity: 0;
-    
-    -webkit-animation: skills_item_show 2s ease forwards;
-    -o-animation: skills_item_show 2s ease forwards;
-    animation: skills_item_show 2s ease forwards;
-    
-    -webkit-animation-delay: 2.8s;
-    -o-animation-delay: 2.8s;
-    animation-delay: 2.8s;
 }
 
 @keyframes skills_item_show{
@@ -979,16 +798,6 @@ main {
     margin-bottom: 46px;
     font-size: 21px;
     text-transform: uppercase;
-    
-     opacity: 0;
-    
-    -webkit-animation: show_text 2s forwards;
-    -o-animation: show_text 2s forwards;
-    animation: show_text 2s forwards;
-    
-    -webkit-animation-delay: 3.6s;
-    -o-animation-delay: 3.6s;
-    animation-delay: 3.6s;
 }
 
 .contacts_inputs input{
@@ -1012,8 +821,36 @@ main {
     font-size: 20px;
     margin-bottom: 76px;
     padding-left: 0px;
-    
 }
+
+
+/* */
+.contacts_inputs input{
+    height: 34px;
+    margin-bottom: 14px;
+    background: rgba(210, 214, 220, 0.93);
+    font-size: 16px;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.contacts_inputs .secondInput{
+    float: right;
+}
+
+.contacts_container textarea{
+    display: block;
+    width: 100%;
+    resize: none;
+    padding-top: 10px;
+    padding-left: 15px;
+    background: rgba(220, 224, 230, 0.93);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+
+
 
 .MyContacts_container input[type="Submit"]:hover{
     color: #e47f45;
@@ -1076,7 +913,7 @@ main {
     height: 30px;
 }
 
-* 9 слайд */
+* 9 слайд 
 .map img{
     display: block;
     width: 100%;
@@ -1095,4 +932,32 @@ main {
     text-align: center;
     line-height: 94px;
     color: white;
+}*/
+
+
+
+.carousel-control-next, .carousel-control-prev {
+	height: 60%;
 }
+
+#carouselReview .carousel-indicators{
+    margin-bottom: -10px;
+}
+
+#carouselReview .carousel-indicators [data-bs-target]{
+    background-color: #ff6c00;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon{
+   background-color: #ff6c00; 
+}
+
+.keys_left {
+    z-index: 10;
+}
+
+
+
+
+
+

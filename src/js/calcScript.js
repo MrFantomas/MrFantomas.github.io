@@ -1,132 +1,172 @@
-//alert("Добрый день!");
-//
-//let name = prompt("Какое у Вас имя?");
-//alert(`Добро пожаловать, ${name}!`);
-//
-//
-//let result = 0;
-//let days = 0;
-//let proverka = 0;
-//
-//let quest1 = prompt("Какой тип сайта нужен? \n1 - Визитка: 1000 рублей \n2 - Корпоративный сайт: 2000 рублей \n3 - Интернет-магазин: 3000 рублей");
-//
-//if (quest1 === "1") {
-//    result += 1000;
-//    days += 2;
-//    proverka = 1;
-//} else if (quest1 === "2") {
-//    result += 2000;
-//    days += 4;
-//    proverka = 1;
-//} else if (quest1 === "3") {
-//    result += 3000;
-//    days += 6;
-//    proverka = 1;
-//} else if (quest1 > "3") {
-//    alert("Ошибка.Введите от 1 до 3")
-//    proverka = 0;
-//};
-//
-//
-//if (proverka === 1) {
-//    let quest2 = prompt("Какой необходим дизайн? \n1 - Деловой: 1000 рублей \n2 - Ретро: 2000 рублей \n3 - Минимализм: 3000 рублей");
-//    if (quest2 === "1" && proverka === 1) {
-//        result += 1000;
-//        days += 3;
-//        proverka = 1;
-//    } else if (quest2 === "2") {
-//        result += 2000;
-//        days += 5;
-//        proverka = 1;
-//    } else if (quest2 === "3") {
-//        result += 3000;
-//        days += 5;
-//        proverka = 1;
-//    } else if (quest2 > "3") {
-//        alert("Ошибка.Введите от 1 до 3")
-//        proverka = 0;
-//};
-//
-//
-//if (proverka === 1) {
-//    let quest3 = prompt("Какая адаптивность нужна? \n1 - Все устройства: 3000 рублей \n2 - Только ПК: 2000 рублей \n3 - Мобильные устройства: 2000 рублей");
-//    if (quest3 === "1") {
-//        result += 3000;
-//        days += 3;
-//        proverka = 1;
-//    } else if (quest3 === "2") {
-//        result += 2000;
-//        days += 2;
-//        proverka = 1;
-//    } else if (quest3 === "3") {
-//        result += 2000;
-//        days += 2;
-//        proverka = 1;
-//    } else if (quest3 > "3") {
-//        alert("Ошибка.Введите от 1 до 3")
-//        proverka = 0;
-//    };
-//
-//};
-//
-//
-//if (proverka === 1) {
-//    alert(`Срок изготовления сайта: ${days} дней \nКонечная стоимость сайта ${result} рублей`);
-//} else {
-//    alert("Неверные данные!");
-//}
+$(document).ready(function () {
+
+    //Добавляем Прелоадер
+    $(".loaderArea").css("display", "none");
+
+    //Анимация активных ссылок в меню 
+    $(window).scroll(() => {
+        let scrollDistance = $(window).scrollTop();
 
 
-alert("Добрый день!");
+        $('.section').each((i, el) => {
 
-let name = prompt("Какое у Вас имя?");
-alert(`Добро пожаловать, ${name}!`);
+            if ($(el).offset().top - $('nav').outerHeight() <= scrollDistance) {
+                $('nav a').each((i, el) => {
+                    if ($(el).hasClass('active')) {
+                        $(el).removeClass('active');
+                    }
+                });
 
-let quest1, quest2, quest3;
+                $('nav li:eq(' + i + ')').find('a').addClass('active');
+            }
 
-let calc = {
-    price: [
-        [1000, 2000, 3000],
-        [1000, 2000, 3000],
-        [3000, 2000, 2000],
-    ],
-    days: [
-        [2, 4, 6],
-        [3, 5, 5],
-        [3, 2, 2],
-    ],
-    run(q1, q2, q3) {
-        let result = parseInt(calc.price[0][q1-1]) + parseInt(calc.price[1][q2-1] + parseInt(calc.price[2][q3-1]));
-    
-        let days = parseInt(calc.days[0][q1-1]) + parseInt(calc.days[1][q2-1]) + parseInt(calc.days[2][q3-1]);
-        
-        alert(`Срок изготовления сайта: ${days} дней \nКонечная стоимость сайта ${result} рублей`);
+        });
+    });
+
+    //Плавный скроллинг к якорным ссылкам
+    $("a[href^='#']").click(function () {
+        let _href = $(this).attr("href");
+        $("html, body").animate({
+            scrollTop: $(_href).offset().top + "px"
+        });
+        return false;
+    });
+
+    //Отложенная анимация
+    let options = {
+        threshold: [0.7]
+    };
+    let observer = new IntersectionObserver(onEntry, options);
+    let elements = $('.element-animationH');
+    elements.each((i, el) => {
+        observer.observe(el);
+    });
+
+
+    let options2 = {
+        threshold: [0.7]
+    };
+
+    let observer2 = new IntersectionObserver(onEntry2, options2);
+    let elements2 = $('.element-animationImgText');
+    elements2.each((i2, el2) => {
+        observer2.observe(el2);
+    });
+
+
+
+
+    //калькулятор
+    function calculate() {
+        let sum = parseInt($("selectSite option:selected").val()) + parseInt($("selectDesign option:selected").val()) + parseInt($("selectAdaptive option:selected").val());
+
+        let days = parseInt($("selectSite option:selected").attr("days")) + parseInt($("selectDesign option:selected").attr("days")) + parseInt($("selectAdaptive option:selected").attr("days"));
+
+        $(".price .digit").text(sum);
+        $(".days .digit").text(days);
     }
 
-}
 
-function getAns() {
-quest1 = prompt("Какой тип сайта нужен? \n1 - Визитка: 1000 рублей \n2 - Корпоративный сайт: 2000 рублей \n3 - Интернет-магазин: 3000 рублей");
-    if (quest1 != 1 && quest1 != 2 && quest1 != 3) {
-        alert("Ошибка.Введите от 1 до 3");
-        getAns();
-        return;
+    function calculate() {
+        let sum = parseInt($("#selectSite option:selected").val()) + parseInt($("#selectDesign option:selected").val()) + parseInt($("#selectAdaptive option:selected").val());
+
+        let days = parseInt($("#selectSite option:selected").attr("days")) + parseInt($("#selectDesign option:selected").attr("days")) + parseInt($("#selectAdaptive option:selected").attr("days"));
+
+        $(".price .digit").text(sum);
+        $(".days .digit").text(days);
     }
+    calculate();
+    $("select").on("change", function () {
+        calculate();
+    });
 
-quest2 = prompt("Какой необходим дизайн? \n1 - Деловой: 1000 рублей \n2 - Ретро: 2000 рублей \n3 - Минимализм: 3000 рублей");
-    if (quest2 != 1 && quest2 != 2 && quest2 != 3) {
-        alert("Ошибка.Введите от 1 до 3");
-        getAns();
-        return;
+
+    //Бегающие цифры статистики
+    let optionsStat = {
+        threshold: [0.5]
+    };
+    let observerStat = new IntersectionObserver(onEntryStat, optionsStat);
+    let elementsStat = $('.statAnimation');
+
+    elementsStat.each((i, el) => {
+        observerStat.observe(el);
+    });
+
+
+    function onEntryStat(entry) {
+        entry.forEach(change => {
+            if (change.isIntersecting) {
+                if (!$('.statAnimation').hasClass("done")) {
+                    $('.statAnimation').addClass("done");
+                    $('.statAnimation').spincrement({
+                        thousandSeparator: "",
+                        duration: 4500
+                    });
+                }
+            }
+        });
     }
     
-let quest3 = prompt("Какая адаптивность нужна? \n1 - Все устройства: 3000 рублей \n2 - Только ПК: 2000 рублей \n3 - Мобильные устройства: 2000 рублей");
-    if (quest3 != 1 && quest3 != 2 && quest3 != 3) {
-        alert("Ошибка.Введите от 1 до 3");
-        getAns();
-        return;
+    //Загрузка картинок при пролистывании
+    let optionsImg = {
+        threshold: [0.5]
+    };
+    let observerImg = new IntersectionObserver(onEntryImg, optionsImg);
+    let elementsImg = $('.first_image');
+
+    elementsImg.each((i, el) => {
+        observerImg.observe(el);
+    });
+
+
+    function onEntryImg(entry) {
+        entry.forEach(change => {
+            if (change.isIntersecting) {
+                change.target.src = change.target.dataset.src;
+            }
+        });
     }
-    calc.run(quest1,quest2,quest3);
+    
+    
+     //Модальные окна в кейсах
+    $('.image-link').magnificPopup({
+        type: 'image'
+    });
+
+    //Модальное окно акции по таймеру
+    setTimeout(function () {
+        const myModal = new bootstrap.Modal('#myModal', {
+            keyboard: false
+        });
+        modalToggle = document.getElementById('toggleMyModal');
+        myModal.show(modalToggle);
+
+    }, 10000);
+
+    
+    //Модальные окна в кейсах
+    $('.image-link').magnificPopup({
+        type: 'image'
+    });
+
+});
+
+
+
+
+//функции для добавления класса, чтобы начаналась анимация
+function onEntry(entry) {
+    entry.forEach(change => {
+        if (change.isIntersecting) {
+            change.target.classList.add('show-animationH');
+        }
+    });
 }
 
-getAns();
+function onEntry2(entry) {
+    entry.forEach(change => {
+        if (change.isIntersecting) {
+            change.target.classList.add('show-animationImgText');
+        }
+    });
+}
