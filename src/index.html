@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="descriptoin" content="Первая адаптивная страница">
+    <meta name="author" content="Maksim">
+
+    <meta property="og:title" content="Это мой сайт">
+
+    <title>Максим Ким - Веб-разработчик</title>
+
+    <!-- Yandex.Metrika counter -->
+    <script async type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(90702340, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/90702340" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter  -->
+
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/90702340" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+     <!--/Yandex.Metrika counter -->
+
+  
+    <link rel="stylesheet" href="css/reset.css" media="all" >   
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="all">
+    <link rel="stylesheet" href="css/font-awesome.css" media="all" >
+    <link rel="stylesheet" href="css/magnific-popup.css" media="all">
+    <link rel="stylesheet" href="css/preloader.css" disable media="all">    
+   <link rel="stylesheet" href="css/firstpage.css " media="all" onload="this.media='all'">
+    <link rel="stylesheet" href="css/style.css" media="all" onload="this.media='all'" >
+    <link rel="stylesheet" href="css/animate.min.css" media="all">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    <div class="loaderArea">
+        <div class="loader"></div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Поздравляю!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    Вы 100 посетитель сайта и в честь этого дарим вам скидку 25% на разработку любого сайта!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Получить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <header>
+        <nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xxl-2 col-xl-3 col-lg-3 col-7 ">
+                        <div class="logo">Максим Ким</div>
+                    </div>
+                    <div class="col-xxl-6 col-xl-7 col-lg-9 offset-xxl-4 offset-xl-2 px-0 d-none d-lg-block">
+                        <div class="menu">
+                            <ul>
+                                <li><a href="#about">Обо мне</a></li>
+                                <li><a href="#service">Услуги</a></li>
+                                <li><a href="#portfolio">Кейсы</a></li>
+                                <li><a href="#price">Прайс</a></li>
+                                <li><a href="#reviews">Отзывы</a></li>
+                                <li><a href="#contacts">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-5 d-flex justify-content-center flex-column align-items-end d-lg-none">
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Меню
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="#about">Обо мне</a></li>
+                                <li><a class="dropdown-item" href="#service">Услуги</a></li>
+                                <li><a class="dropdown-item" href="#portfolio">Кейсы</a></li>
+                                <li><a class="dropdown-item" href="#price">Прайс</a></li>
+                                <li><a class="dropdown-item" href="#reviews">Отзывы</a></li>
+                                <li><a class="dropdown-item" href="#contacts">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1 cлайд -->
+        <section class="main">
+            <div class="container h-100">
+                <div class="row align-items-center h-100">
+                    <div class="col-lg-6 mt-5 pt-5">
+                        <div class="title__container mt-5">
+                            <h1>Привет <br> Я Максим Ким</h1>
+                            <h4><i class="fa fa-css3 custom-css3" aria-hidden="true"></i>Фулл стек веб-разработчик</h4>
+                            <input type="button" value="Обо мне">
+                            <input type="button" value="Мои работы">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2 слайд -->
+        <section id="about" class="about_me section">
+            <div class="about_me_container container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-xxl-2 col-lg-4">
+                        <h2 class="h2 animate__animated animate__bounceInDown animate__slow wow">Обо мне</h2>
+                        <hr class="animate__animated animate__bounceInDown animate__slow wow">
+                    </div>
+                </div>
+
+                <div class="element-animationImgText">
+
+                    <img class="d-block mx-auto first_image" src="img/photka-off.png" data-src="img/photka.png" alt="Тут должна быть фоточка...">
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-10 col-md-9 col-lg-8 text-center text-md-start ">
+                            <p class="Text1 mt-3 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero atque dolores eligendi eius, reiciendis iusto pariatur tenetur incidunt beatae quidem porro minus perspiciatis explicabo ullam dicta itaque, mollitia consequuntur nemo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-10 col-md-9 col-lg-8 text-center text-md-start">
+                            <p class="Text2 mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima voluptates delectus nihil ullam odio hic, neque explicabo sed animi ratione aliquid reiciendis eveniet. Aut, numquam!
+                            </p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row justify-content-center">
+                        <div class="col-6 col-sm-5 col-md-4 col-lg-2"><a download="Summart.txt" href="files/summary.txt">Скачать резюме</a></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3 слайд -->
+        <section id="service" class="myskills section">
+            <div class="myskills_container container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-xxl-2 col-lg-4 text-center element-animationH">
+                        <h2 class="h2 animate__animated animate__bounceInDown animate__slow wow">Что я умею</h2> <!-- animate__animated animate__backInDown animate__slow переделать потом на эту анимацию заголовки -->
+                        <hr class="animate__animated animate__bounceInDown animate__slow wow">
+                    </div>
+                </div>
+
+                <div class="row justify-content-center text-center element-animationImgText">
+                    <div class="skills_item col-12 col-sm-6 col-md-3 ">
+                        <img width="40px" height="25px" src="img/notebook.png" alt="Картинка где-то потерялась :(">
+                        <h4>Веб-дизайн</h4>
+                        <p>Lorem ipsum dolorh2 sit amet, consectetur adipisicing elit. Eaque soluta dicta cumque quidem minus laboriosam labore iusto.</p>
+                    </div>
+
+                    <div class="skills_item col-12 col-sm-6 col-md-3 ">
+                        <img width="40px" height="25px" src="img/sign.png" alt="Картинка где-то потерялась :(">
+                        <h4>Разработка</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, nemo?</p>
+                    </div>
+
+                    <div class="skills_item col-12 col-sm-6 col-md-3 ">
+                        <img width="40px" height="25px" src="img/Racket.png" alt="Картинка где-то потерялась :(">
+                        <h4>СЕО-Оптимизация</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+
+                    <div class="skills_item col-12 col-sm-6 col-md-3">
+                        <img width="40px" height="25px" src="img/gramophone.png" alt="Картинка где-то потерялась :(">
+                        <h4>Маркетинг</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro nemo rem tempora!</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+	<!-- 4 слайд -->        <section id="portfolio" class="keys section">
+            <div class="keys_container container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-xxl-2 col-lg-4 text-center">
+                        <h2 class="h2 animate__animated animate__bounceInDown animate__slow wow">Кейсы</h2>
+                        <hr class="animate__animated animate__bounceInDown animate__slow wow">
+                    </div>
+                </div>
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-10 col-md-8 col-12 text-center element-animationImgText">
+                        <p class="keys_subscription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia recusandae sapiente ab illo sed, animi saepe!</p>
+                    </div>
+                </div>
+
+
+                <div id="carouselExampleIndicators" class="carousel slide element-animationH" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="first_image image-link" src="img/keys_photka.jpg-off.png" data-src="img/keys_photka.jpg.png" href="img/keys_photka.jpg.png"  alt="Картинка где-то потерялась :(">
+                            <div class="row justify-content-center ">
+                                <div class="keys_left col-md-2">
+                                    <h4>Client:</h4>
+                                    <p>Какая-то компания</p>
+                                    <h4>Website:</h4>
+                                    <p>https://somedomain.ru</p>
+                                    <a href="https://yandex.ru/" target="_blank"><span>Visit Live Site</span></a>
+                                </div>
+                                <div class="keys_right col-md-9 offset-md-1">
+                                    <h4>Название проекта</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione accusantium similique minus fugit necessitatibus. Itaque quia harum, expedita, odit temporibus, accusantium eaque nesciunt voluptatibus officiis nostrum sint rerum quisquam? Iste blanditiis ratione culpa.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                             <img class="first_image image-link" src="img/keys_photka.jpg-off.png" data-src="img/keys_photka.jpg.png" href="img/keys_photka.jpg.png"  alt="Картинка где-то потерялась :(">
+                            <div class="row justify-content-center element-animationH">
+                                <div class="keys_left col-md-2">
+                                    <h4>Client:</h4>
+                                    <p>Какая-то компания</p>
+                                    <h4>Website:</h4>
+                                    <p>https://somedomain.ru</p>
+                                    <a href="https://yandex.ru/" target="_blank"><span>Visit Live Site</span></a>
+                                </div>
+                                <div class="keys_right col-md-9 offset-md-1">
+                                    <h4>Название проекта</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione accusantium similique minus fugit necessitatibus. Itaque quia harum, expedita, odit temporibus, accusantium eaque nesciunt voluptatibus officiis nostrum sint rerum quisquam? Iste blanditiis ratione culpa.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                             <img class="first_image image-link" src="img/keys_photka.jpg-off.png" data-src="img/keys_photka.jpg.png" href="img/keys_photka.jpg.png"  alt="Картинка где-то потерялась :(">
+                            <div class="row justify-content-center">
+                                <div class="keys_left col-md-2">
+                                    <h4>Client:</h4>
+                                    <p>Какая-то компания</p>
+                                    <h4>Website:</h4>
+                                    <p>https://somedomain.ru</p>
+                                    <a href="https://yandex.ru/" target="_blank"><span>Visit Live Site</span></a>
+                                </div>
+                                <div class="keys_right col-md-9 offset-md-1">
+                                    <h4>Название проекта</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione accusantium similique minus fugit necessitatibus. Itaque quia harum, expedita, odit temporibus, accusantium eaque nesciunt voluptatibus officiis nostrum sint rerum quisquam? Iste blanditiis ratione culpa.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Предыдущий</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Следующий</span>
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+         
+
+
+        <!-- 5 слайд -->
+        <section id="price" class="calculation section">
+            <div class="calculation_container container col-8 element-animationH">
+                <div class="row justify-content-center ">
+                    <div class="col-sm-12">
+                        <h2 class="element-animationH">Расчёт стоимости</h2>
+                    </div>
+
+                    <div class="cost col-10">
+                        <h3>Тип сайта</h3>
+
+
+                        <select id="selectSite" class="mySelect col-12" name="type">
+                            <option value="0" days="0" selected disabled hidden>Выберите пункт...</option>
+                            <option value="2000" days="3">Визитка</option>
+                            <option value="3000" days="4">Корпоративный</option>
+                            <option value="4000" days="5">Интернет-магазин</option>
+                        </select>
+
+                        <h3>Дизайн</h3>
+                        <select id="selectDesign" class="mySelect col-12" name="type">
+                            <option value="0" days="0" selected disabled hidden>Выберите пункт...</option>
+                            <option value="2000" days="3">Деловой</option>
+                            <option value="2000" days="4">Ретро</option>
+                            <option value="3000" days="5">Минимализм</option>
+                        </select>
+
+                        <h3>Адаптивность</h3>
+                        <select id="selectAdaptive" class="mySelect col-12 align-items center" name="type">
+                            <option value="0" days="0" selected disabled hidden>Выберите пункт...</option>
+                            <option value="4000" days="6">Полная (Все устройства)</option>
+                            <option value="3000" days="3">Только ПК</option>
+                            <option value="3000" days="3">Только смартфоны</option>
+                        </select>
+                        <hr>
+
+                        <div class="Total">
+                            <div class="row">
+                                <div class="days">
+                                    <p class="text ">Сроки</p>
+                                    <p class="digit ">0</p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="price">
+                                    <p class="text">Стоимость</p>
+                                    <p class="digit">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center text-center">
+                            <div class="col-lg-5 col-md-6 col-xl-4 col-xxl-3">
+                                <div class="sub_appl">
+                                    <a href="#" target="_blank"><span>Оставить заявку</span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 слайд -->
+        <section class="statistics">
+            <div class="statistics_container container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-sm-12">
+                        <h2 class="h2 animate__animated animate__bounceInDown animate__slow wow">Немного статистики</h2> <!-- animate__animated animate__backInDown animate__slow -->
+                        <hr class="animate__animated animate__bounceInDown animate__slow wow">
+                    </div>
+                </div>
+
+
+                <div class="row justify-content-center text-center element-animationH">
+                    <div class="statistics_item col-12 col-sm-6 col-md-3 ">
+                        <!--element-animationImgText-->
+                        <img src="img/smile.png" alt="Картинка где-то потерялась :(">
+                        <h4 class="statAnimation">120</h4>
+                        <p>Cчастливых клиентов</p>
+                    </div>
+
+                    <div class="statistics_item col-12 col-sm-6 col-md-3 ">
+                        <img src="img/parentheses.png" alt="Картинка где-то потерялась :(">
+                        <h4 class="statAnimation">4600</h4>
+                        <p>Часов работы</p>
+                    </div>
+
+                    <div class="statistics_item col-12 col-sm-6 col-md-3">
+                        <img src="img/check_mark.png" alt="Картинка где-то потерялась :(">
+                        <h4 class="statAnimation">340</h4>
+                        <p>Проектов завершено</p>
+                    </div>
+
+                    <div class="statistics_item fourth col-12 col-sm-6 col-md-3">
+                        <img src="img/cup.png" alt="Картинка где-то потерялась :(">
+                        <h4 class="statAnimation">23</h4>
+                        <p>Наград получено</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7 слайд -->
+        <section id="reviews" class="reviews section">
+            <div class="reviews_container container">
+
+                <div class="row justify-content-center text-center">
+                    <div class="col-sm-12">
+                        <h2 class="h2 animate__animated animate__bounceInDown animate__slow wow">Отзывы</h2>
+                        <hr class="animate__animated animate__bounceInDown animate__slow wow">
+                    </div>
+                </div>
+
+                <div class="row justify-content-center text-center">
+                    <div class="review col-8 element-animationH">
+
+                        <div id="carouselReview" class="carousel slide" data-bs-ride="true">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselReview" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselReview" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselReview" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="first_image" src="img/photka1_review-off.png" data-src="img/photka1_review.png" alt="Картинка где-то потерялась :(">
+                                    <p class="review_text col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio consequatur ex velit! Deleniti.</p>
+                                    <p class="review_author col-sm-12"><span>Михаил</span>, Ген. Директор ПАО &ldquo;Газпром&rdquo;</p>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="first_image" src="img/photka1_review-off.png" data-src="img/photka1_review.png" alt="Картинка где-то потерялась :(">
+                                    <p class="review_text col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio consequatur ex velit! Deleniti.</p>
+                                    <p class="review_author col-sm-12"><span>Михаил</span>, Ген. Директор ПАО &ldquo;Газпром&rdquo;</p>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="first_image" src="img/photka1_review-off.png" data-src="img/photka1_review.png" alt="Картинка где-то потерялась :(">
+                                    <p class="review_text col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio consequatur ex velit! Deleniti.</p>
+                                    <p class="review_author col-sm-12"><span>Михаил</span>, Ген. Директор ПАО &ldquo;Газпром&rdquo;</p>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselReview" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Предыдущий</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselReview" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Следующий</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 8 слайд -->
+        <section id="contacts" class="MyContacts section">
+            <div class="MyContacts_container container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-sm-12 element-animationH">
+                        <h2 class="h2 ">Мои контакты</h2>
+                        <hr class="element-animationH">
+                    </div>
+                </div>
+
+                <p class="contacts_sub element-animationH">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, facere</p>
+
+
+                <div class="contacts_data">
+                    <div class="row justify-content-center text-center element-animationH">
+                        <div class="contacts_data_item col-12 col-lg-4">
+                            <img width="17px" height="24px" src="img/geo.png" alt="Картинка где-то потерялась :(">
+                            <p>Санкт-Петербург, Невский проспект 11</p>
+                        </div>
+                        <div class="contacts_data_item col-12 col-lg-4">
+                            <img width="29px" height="24px" src="img/convert.png" alt="Картинка где-то потерялась :(">
+                            <p>info@companyname.com</p>
+                        </div>
+                        <div class="contacts_data_item col-12 col-lg-4">
+                            <img width="24px" height="24px" src="img/telephone.png" alt="Картинка где-то потерялась :(">
+                            <p>+7 999 999-99-99</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center text-center">
+                    <div class="col-sm-12 col-12 element-animationH">
+                        <h3>Оставьте мне сообщение</h3>
+                    </div>
+                </div>
+
+                <form action="php/mail.php" method="post" class="element-animationH">
+                    <div class="contacts_inputs row justify-content-center text-center">
+                        <div class="col-12 col-sm-4 "><input required type="text" name="user_name" id="formName" placeholder="Имя"></div>
+                        <div class="col-12 col-sm-4 "><input required class="secondInput" name="user_phone" type="tel" id="inputTel" placeholder="Телефон"></div>
+                    </div>
+
+                    <div class="contacts_inputs row justify-content-center text-center">
+                        <div class="col-12 col-sm-8"><input required type="Email" name="user_email" id="formEmail" placeholder="Email"></div>
+                    </div>
+
+                    <div class="row justify-content-center text-center">
+                        <div class="col-sm-8">
+                            <textarea placeholder="Сообщение" name="message" id="messageText" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Отправить">
+                </form>
+
+                <div class="contacts_social">
+                    <div class="row justify-content-center element-animationH">
+                        <a class="col-2 col-md-2" href="#"><img width="20px" height="11px" src="img/fb.png" alt=""></a>
+                        <a class="col-2 col-md-2" href="#"><img width="30px" height="10px" src="img/twitter.png" alt=""></a>
+                        <a class="col-2 col-md-2" href="#"><img width="30px" height="10px" src="img/ball.png" alt=""></a>
+                        <a class="col-2 col-md-2" href="#"><img width="30px" height="10px" src="img/kitty.png" alt=""></a>
+                        <a class="col-2 col-md-2" href="#"><img width="30px" height="10px" src="img/inst.png" alt=""></a>
+                        <a class="col-2 col-md-2" href="#"><img width="30px" height="10px" src="img/in.png" alt=""></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- 9 слайд 
+   	
+	<footer>           
+
+ 	<div>
+                <div class="map container-fluid" id="map_container">                  
+  <script type="text/javascript" charset="utf-8" id="ymap_lazy" data-skip-moving="true" async="" data-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad3672aa640444d6733d378ee2868f884a9b5dbf7c866c465a95423aad97a2f3f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>
+
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer_container">
+                    <p>Copyright 2021 Андрей Браун. Design by Web</p>
+                </div>
+            </div>
+        </footer>-->
+
+<footer>
+	
+        <div class="map" >
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad3672aa640444d6733d378ee2868f884a9b5dbf7c866c465a95423aad97a2f3f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=fal"></script>
+        </div>
+	<!--<div id="yamap"></div>-->
+
+        <div class="footer">
+            <div class="footer_container">
+                <p>Copyright 2021 Андрей Браун. Design by Web</p>
+            </div>
+        </div>
+    </footer>
+
+
+    </main>
+
+    <script src="js/jquery-3.6.1.min.js"></script>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+       <script src="js/jquery.magnific-popup.min.js"></script>
+
+    <script async src="js/maskedinput.min.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <script async src="js/calcScript.js"></script>
+
+
+</body>
+
+</html>
