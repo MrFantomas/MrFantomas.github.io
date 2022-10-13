@@ -689,7 +689,9 @@ li .active{
 
 /* 9 слайд */
 
-
+.mapa{
+    height: 400px;
+}
 .footer{
     background: #2b3c4f;
     height: 94px;
