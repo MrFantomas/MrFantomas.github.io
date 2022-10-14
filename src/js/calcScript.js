@@ -210,7 +210,7 @@ $(document).ready(function () {
     let elementsMap = $('#myMap');
 
     async function onEntryMap(entry) {
-        alert("work");
+        alert("work")
         entry.forEach(entry => {
             $('.mapa').html('<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad3672aa640444d6733d378ee2868f884a9b5dbf7c866c465a95423aad97a2f3f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>')                 
         });
