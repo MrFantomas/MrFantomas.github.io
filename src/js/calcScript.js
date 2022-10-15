@@ -8,20 +8,15 @@ $(document).ready(function () {
     //Анимация активных ссылок в меню 
     $(window).scroll(() => {
         let scrollDistance = $(window).scrollTop();
-
-
         $('.section').each((i, el) => {
-
             if ($(el).offset().top - $('nav').outerHeight() <= scrollDistance) {
                 $('nav a').each((i, el) => {
                     if ($(el).hasClass('active')) {
                         $(el).removeClass('active');
                     }
                 });
-
                 $('nav li:eq(' + i + ')').find('a').addClass('active');
             }
-
         });
     });
 
@@ -32,6 +27,7 @@ $(document).ready(function () {
     };
     let observer = new IntersectionObserver(onEntry, options);
     let elements = $('.element-animationH');
+    
     elements.each((i, el) => {
         observer.observe(el);
     });
@@ -58,6 +54,7 @@ $(document).ready(function () {
         observerImg.observe(el);
     });
 
+    
     //калькулятор
     async function calculate() {
         let sum = parseInt($("selectSite option:selected").val()) + parseInt($("selectDesign option:selected").val()) + parseInt($("selectAdaptive option:selected").val());
@@ -67,7 +64,6 @@ $(document).ready(function () {
         $(".price .digit").text(sum);
         $(".days .digit").text(days);
     }
-
 
 
     //Бегающие цифры статистики
@@ -187,39 +183,27 @@ $(document).ready(function () {
 
 
 
-    /*//карта 1 метод
-    let ok = false;
-    window.addEventListener('scroll', function () {
-        if (ok === false) {
-            ok = true;
-            setTimeout(() => {
-                let script = document.createElement('script');
-                script.src = 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad3672aa640444d6733d378ee2868f884a9b5dbf7c866c465a95423aad97a2f3f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false';
-                document.getElementById('yamap').replaceWith(script);                
-            }, 3000)
-        }
-    });
-    */
-
     //карта 2 метод    
     let optionsMap = {
-        threshold: [1]
+        threshold: [0.5]
     };
 
     let observerMap = new IntersectionObserver(onEntryMap, optionsMap);
     let elementsMap = $('#myMap');
 
     async function onEntryMap(entry) {
-        alert("work")
-        entry.forEach(entry => {
-            $('.mapa').html('<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad3672aa640444d6733d378ee2868f884a9b5dbf7c866c465a95423aad97a2f3f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>')                 
+        entry.forEach(change => {
+            if (change.isIntersecting) {
+            $('#myMap').html('<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad3672aa640444d6733d378ee2868f884a9b5dbf7c866c465a95423aad97a2f3f&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>')                 
+            }
         });
+        
     }
+    
+    elementsMap.each((i,el) => {
+        observerMap.observe(el);
+    });
                       
-                      
-                      
-     
-                      
-                      
-                      
+   
+    
 });
