@@ -1,0 +1,269 @@
+@font-face {
+    font-family: 'FranklinGot';
+    src: url('../fonts/framd.eot');
+    src: local('☺'), url('../fonts/framd.woff') format('woff'), url('../fonts/framd.ttf') format('truetype'), url('../fonts/framd.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    font-family: 'FranklinGot', 'Arial', sans-serif;
+}
+
+
+nav {
+    width: 100%;
+    height: 120px;
+    background: #FFF3DC;
+    position: fixed;
+    z-index: 102;
+    
+}
+
+.logo {
+    color: #fff;
+    font-size: 30px;
+    line-height: 122px;
+    float: left;
+    margin-right: 60px;
+    margin-bottom: 120px;
+}
+
+.menu {
+    float: left;
+}
+
+.menu li {
+    float: left;
+    line-height: 130px;
+    margin: 0 auto;
+    margin-right: 60px;
+    font-size: medium;
+    font-weight: 550;
+}
+
+.menu li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #033249;
+    font-family: 'FranklinGot', sans-serif;
+}
+.Color{
+    color: #F4B537;
+}
+
+
+main {
+    width: 100%;
+    height: 100%;
+    background-color: #D7EEFA;
+}
+
+.textMain{
+    margin-top: 280px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.otstyp{
+    margin-top: 240px;
+    margin-bottom: 90px;
+}
+
+.otstyp_lap{
+    margin-top: 38px;
+}
+.otstyp_lap2{
+    margin-top: 120px;
+}
+
+.contacs{
+    background-color: #D7EEFA;
+
+}
+
+.d2 {
+    width: 306px; 
+    height: 130px;
+    background: #FFFFFF;
+    border-radius: 153px/65px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+ 
+.d3 {
+    margin-top: 50px;
+    width: 306px; 
+    height: 130px;
+    background: #F4B537;
+    border-radius: 153px/65px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.rectangle_for_map{
+    width: 636px;
+	height: 308px;
+    padding: 14px;
+	background: #F4B537;
+    border-radius: 29px;
+    padding-left: 15px;
+}
+.div{
+    background-color: #D7EEFA;
+    width: 100%;
+    height: 100px;
+}
+
+.social{
+    background: url(../img/backYellow.svg) no-repeat;
+    background-size: cover;
+    background-color: #D7EEFA;
+}
+
+.otstyplap1{
+    margin-top: 50px;
+}
+.otstyplap2{
+    margin-top: 150px;
+}
+
+.otstyplap3{
+    margin-top: 200px;
+}
+
+.orangerec{
+    width: 856px;
+	height: 100px;
+    padding: 5px;
+	background: #F4B537;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 26px;
+}
+
+.rec_orange{
+    text-align: left;
+    margin-top: 24px;
+    width: 196px;
+	height: 43px;
+    padding: 5px;
+	background: #F4B537;
+    border-radius: 7px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.rec_orange a{
+    text-decoration: none;
+}
+
+.WTP{
+    padding-left: 50px;
+    background: url(../img/whatsap.png) 0%/auto no-repeat;
+}
+.VK{
+    padding-left: 50px;
+    background: url(../img/VK.png) 0%/auto no-repeat;
+}
+
+.TG{
+    padding-left: 50px;
+    background: url(../img/telegram.png) 0%/auto no-repeat;
+}
+
+.Ya{
+    padding-left: 50px;
+    background: url(../img/Ya.svg) 0%/auto no-repeat;
+}
+
+.otstypminilogo{
+    margin-top: 28px;
+}
+
+
+.rec_orange2{
+    margin-top: 24px;
+    width: 300px;
+	height: 43px;
+    padding: 5px;
+	background: #F4B537;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+}
+.rec_orange2 a{
+    text-decoration: none;
+}
+
+
+.otstyplap22{
+    margin-top: 150px;
+    margin-bottom: 400px;
+}
+
+
+
+.Wrectangle {
+    text-align: left;
+    margin-top: 24px;
+    width: 427px;
+    height: 48px;
+    font-size: 24px;
+    padding: 5px;
+    
+}
+
+.Wrectangle a{
+    text-decoration: none;
+    color: white;
+}
+
+.Wmail {
+    padding-left: 60px;
+    background: url(../img/Wemail.svg) 0%/auto  no-repeat;
+    background-size: contain;
+    
+}
+
+.Wphone{
+    padding-left: 60px;
+    background: url(../img/Wphone.svg) 0%/auto  no-repeat;
+    background-size: contain;
+}
+
+.Waddress{
+    padding-left: 60px;
+    background: url(../img/Wmap.svg) 0%/auto  no-repeat;
+    background-size: contain;
+}
+
+
+.Wrectangle2{
+    text-align: right;
+    margin-top: 24px;
+    width: 427px;
+    height: 48px;
+    font-size: 24px;
+    padding: 5px;
+    color: white;
+}
+
+.Wrectangle2img{
+    margin-top: 80px;
+    text-align: right;
+    margin-right: -10px; 
+}
+
+
+.footer{
+    background-color: #033249;
+}
