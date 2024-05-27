@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Online Edu</div>
+            <nav>
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Методы шифрования</a>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="showMethod('Эль-Гамаля')">Алгоритм Эль-Гамаля</a>
+                            <a href="#" onclick="showMethod('Диффи-Хеллмана')">Диффи Хеллмана</a>
+                            <a href="#" onclick="showMethod('RSA')">RSA</a>
+                            <a href="#" onclick="showMethod('Сеть Фейстеля')">Сеть Фейстеля</a>
+                            <a href="#" onclick="showMethod('MixColumn')">MixColumn</a>
+                            <a href="#" onclick="showMethod('InvMixColumn')">InvMixColumn</a>
+                            <a href="#" onclick="showMethod('AES 1 раунд')">AES 1 раунд</a>
+                            <a href="#" onclick="showMethod('DES')">DES</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-background">
+            <div class="container">
+                <div class="input-result-container">
+                    <div id="inputFields" style="display: none;">
+                        <div class="input-group">
+                            <label for="p">Введите p:</label>
+                            <input type="number" id="p" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="g">Введите g:</label>
+                            <input type="number" id="g" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="k">Введите k:</label>
+                            <input type="number" id="k" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="x">Введите x:</label>
+                            <input type="number" id="x" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="M">Введите M:</label>
+                            <input type="number" id="M" required>
+                        </div>
+                        <button onclick="calculateElGamal()">Вычислить</button>
+                    </div>
+                    <div class="result-container">
+                        <input type="text" id="resultField" readonly>
+                    </div>
+                </div>
+                <img src="img/background.png" alt="Описание изображения" class="full-image">
+            </div>
+        </div>
+    </main>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
