@@ -31,7 +31,7 @@
     </header>
     <main>
         <div class="main-background">
-            <div class="container">
+            <!-- <div class="container"> -->
                 <div class="input-result-container">
                     <div id="inputFields" style="display: none;">
                         <div class="input-group">
@@ -60,8 +60,43 @@
                         <input type="text" id="resultField" readonly>
                     </div>
                 </div>
+
+
+                <!-- СЕТЬ ФЕЙСТЕЛЯ БЛЯТЬ-->
+                <div class="input-result-container">
+                    <div id="inputFeistel" style="display: none;">
+                        <div class="input-group">
+                            <label for="p">Введите L0:</label>
+                            <input type="string" id="L0" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="g">Введите R0:</label>
+                            <input type="string" id="R0" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="k">Введите 00k1:</label>
+                            <input type="string" id="k1" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="x">Введите 00k2:</label>
+                            <input type="string" id="k2" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="M">Введите 00k3:</label>
+                            <input type="string" id="k3" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="M">Введите 00k4:</label>
+                            <input type="string" id="k4" required>
+                        </div>
+                        <button onclick="calculateFeistel()">Вычислить</button>
+                    </div>
+                    <div class="result-container">
+                        <input type="text" id="resultFeistel" readonly>
+                    </div>
+                </div>
                 <img src="img/background.png" alt="Описание изображения" class="full-image">
-            </div>
+            <!-- </div>-->
         </div>
     </main>
     <script src="js/scripts.js"></script>
