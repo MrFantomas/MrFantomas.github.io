@@ -137,6 +137,61 @@
                         <input type="text" id="resultDES">
                     </div>
                 </div>
+
+
+                <!-----------  Diffie Hallman ------------>
+                <div class="input-result-container">
+                    <div id="inputDiffie2" style="display: none;">
+                        <div class="input-group">
+                            <label for="DHq">Введите q:</label>
+                            <input type="string" id="DHq" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="DHx">Введите x:</label>
+                            <input type="string" id="DHx" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="DHy">Введите y:</label>
+                            <input type="string" id="DHy" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="DHn">Введите n:</label>
+                            <input type="string" id="DHn" required>
+                        </div>
+                        <button onclick="calculateDiffie2()">Вычислить</button>
+                    </div>
+                    <div class="result-container" id="resultDiffie2_pole" style="display: none;">
+                        <input type="text" id="resultDiffie2">
+                    </div>
+                </div>
+
+
+                <!-----------  RSA ------------>
+                <div class="input-result-container">
+                    <div id="inputRSA" style="display: none;">
+                        <div class="input-group">
+                            <label for="RSAp">Введите p:</label>
+                            <input type="string" id="RSAp" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="RSAq">Введите q:</label>
+                            <input type="string" id="RSAq" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="RSAe">Введите e:</label>
+                            <input type="string" id="RSAe" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="RSAx">Введите x:</label>
+                            <input type="string" id="RSAx" required>
+                        </div>
+                        <button onclick="calculateRSA()">Вычислить</button>
+                    </div>
+                    <div class="result-container" id="resultRSA_pole" style="display: none;">
+                        <input type="text" id="resultRSA">
+                    </div>
+                </div>
+
                 <img src="img/background.png" alt="Описание изображения" class="full-image">
             <!-- </div>-->
         </div>

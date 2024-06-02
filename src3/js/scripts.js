@@ -41,6 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('inputDES').style.display = 'none';
             document.getElementById('resultDES_pole').style.display = 'none';
         }
+        if (method === 'Диффи-Хеллмана') {
+            document.getElementById('inputDiffie2').style.display = 'flex';
+            document.getElementById('resultDiffie2_pole').style.display = 'flex';
+            window.calculateDiffie2 = calculateDiffie2;
+        } else {
+            document.getElementById('inputDiffie2').style.display = 'none';
+            document.getElementById('resultDiffie2_pole').style.display = 'none';
+        }
+        if (method === 'RSA') {
+            document.getElementById('inputRSA').style.display = 'flex';
+            document.getElementById('resultRSA_pole').style.display = 'flex';
+            window.calculateRSA = calculateRSA;
+        } else {
+            document.getElementById('inputRSA').style.display = 'none';
+            document.getElementById('resultRSA_pole').style.display = 'none';
+        }
 
     }
 
@@ -528,19 +544,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("# Bits from the second to the fourth indicate the row of the S-block");
     
 
-
-        // let S_blocks_result = S_Blocks(result_R0_key.padStart(24, '0'));
-        // console.log(`Results of S-blocks: S1 = ${S_blocks_result[0]} = ${parseInt(S_blocks_result[0], 2).toString(2).padStart(4, '0')}`);
-        // console.log(`                     S2 = ${S_blocks_result[1]} = ${parseInt(S_blocks_result[1], 2).toString(2).padStart(4, '0')}`);
-        // console.log(`                     S3 = ${S_blocks_result[2]} = ${parseInt(S_blocks_result[2], 2).toString(2).padStart(4, '0')}`);
-        // console.log(`                     S4 = ${S_blocks_result[3]} = ${parseInt(S_blocks_result[3], 2).toString(2).padStart(4, '0')}`);
-        // let S = parseInt(S_blocks_result[0], 2).toString(2).padStart(4, '0') + parseInt(S_blocks_result[1], 2).toString(2).padStart(4, '0') +
-        //         parseInt(S_blocks_result[2], 2).toString(2).padStart(4, '0') + parseInt(S_blocks_result[3], 2).toString(2).padStart(4, '0');
-        // console.log(`S = S1S2S3S4 = ${S}`);
-    
-
         // Assuming S_Blocks is a function that takes a 24-bit string and returns an array [S1, S2, S3, S4]
-         // replace with actual value
+        // replace with actual value
         let zfilledKey = result_R0_key.padStart(24, '0');
 
         let [S1, S2, S3, S4] = S_Blocks(zfilledKey);
@@ -618,8 +623,60 @@ document.addEventListener('DOMContentLoaded', () => {
         resA4 = parseInt(resA4, 2).toString(16);
     
         document.getElementById('resultDES').value =`\nRESULT: ${resA1.padStart(2, '0')}${resA2.padStart(2, '0')}${resA3.padStart(2, '0')}${resA4.padStart(2, '0')}`
-
     }
 
+
+
+    //////////////////// Diffie 2 ////////////////////
+    function calculateDiffie2() {
+        console.log("Диффи-Хеллман для 2-х отправителей");
+ 
+        const q = document.getElementById('DHq').value;
+        const x = document.getElementById('DHx').value;
+        const y = document.getElementById('DHy').value;
+        const n = document.getElementById('DHn').value;
+
+
+        
+        let A = Math.pow(q, x) % n;
+        console.log(`\nA = (q^x) mod n = (${q}^${x}) mod ${n} = `, A);
+    
+        let Ky = Math.pow(A, y) % n;
+        console.log(`Ку = (A^y) mod n = (${A}^${y}) mod ${n} = `, Ky);
+    
+        let B = Math.pow(q, y) % n;
+        console.log(`\nB = (q^y) mod n = (${q}^${y}) mod ${n} = `, B);
+        
+        let Kx = Math.pow(B, x) % n;
+        console.log(`Кx = (B^x) mod n = (${B}^${x}) mod ${n} = `, Kx);
+        
+        console.log("\nK = Kx = Ky =", Kx);
+
+        document.getElementById('resultDiffie2').value =`\nОТВЕТ: ${Kx}`
+
+    }
+    
+
+
+    ///////////////////// RSA //////////////////
+    function calculateRSA() {
+        console.log("RSA. Найдите y(x)"); // p q e x
+         
+        const p = document.getElementById('RSAp').value;
+        const q = document.getElementById('RSAq').value;
+        const e = document.getElementById('RSAe').value;
+        const x = document.getElementById('RSAx').value;
+
+    
+        let m = p * q;
+        console.log(`\nm = p*q = ${p}*${q} = ${m}`);
+        
+        let y = Math.pow(x, e) % m;
+        console.log(`y(x) = (x^e) mod m = (${x}^${e}) mod ${m} = ${y}`);
+        
+        console.log("\nОТВЕТ:", y);
+
+        document.getElementById('resultRSA').value =`\nОТВЕТ: ${y}`
+    }
 
 });
