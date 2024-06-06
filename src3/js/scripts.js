@@ -693,309 +693,493 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     ////////////////////// MIXCOLUMN //////////////////
-    // Функция для преобразования последовательности в полином
+    function hexToBinary(hexNum) {
+        const hexToBinDict = {
+            '0': '0000', '1': '0001', '2': '0010', '3': '0011',
+            '4': '0100', '5': '0101', '6': '0110', '7': '0111',
+            '8': '1000', '9': '1001', 'A': '1010', 'B': '1011',
+            'C': '1100', 'D': '1101', 'E': '1110', 'F': '1111'
+        };
+    
+        let binaryNum = "";
+        for (let digit of hexNum) {
+            binaryNum += hexToBinDict[digit.toUpperCase()];
+        }
+    
+        return binaryNum;
+    }
+    
     function sequenceToPolynomial(sequence) {
         let polynomial = "";
-        let l = sequence.length;
-
-        for (let i = 0; i < sequence.length; i++) {
+        const length = sequence.length;
+    
+        for (let i = 0; i < length; i++) {
             if (sequence[i] === '1') {
-                let power = sequence.length - 1 - i;
+                let power = length - 1 - i;
                 if (power > 0) {
-                    polynomial += `x**${power} + `;
+                    polynomial += `x^${power} + `;
                 } else if (power === 0) {
                     polynomial += "1";
                 }
             }
-            if (sequence[l - 1] === '0') {
-                let power = sequence.length - 1 - i;
-                if (power === 0) {
-                    polynomial += "0";
-                }
-            }
         }
-
+    
+        // Remove the trailing " + " if present
+        if (polynomial.endsWith(" + ")) {
+            polynomial = polynomial.slice(0, -3);
+        }
+    
+        // If the sequence ends with '0', append "0" if the polynomial is empty
+        if (sequence[length - 1] === '0' && polynomial === "") {
+            polynomial = "0";
+        }
+    
         return polynomial;
-    } 
-
-    function polynomial_to_sequence(polynomial) {
-        // Определение переменной x
-        let x;
-    
-        // Создание полинома x**8 + x**4 + x**3 + x + 1
-        // В JavaScript нет возможности использовать символы для x, поэтому просто оставим формулу
-        let polynomialExpression = x**8 + x**4 + x**3 + x + 1;
-    
-        // Получение коэффициентов полинома
-        let coefficients = polynomialExpression.coeffs();
-    
-        // Получение бинарной строки из коэффициентов полинома
-        let binaryString = '';
-        for (let i = 0; i < coefficients.length; i++) {
-            if (coefficients[i] !== 0) {
-                binaryString += '1';
-            } else {
-                binaryString += '0';
-            }
-        }
-    
-        console.log("Полином", polynomial, "в двоичном коде", binaryString);
-        
-        return binaryString;
     }
-
-    // Умножение полиномов и деление на неприводимый многочлен на JavaScript
-
-    // Функция для умножения полиномов
-    function multiplyPolynomials(polynomial1, polynomial2) {
-        // В JavaScript нет возможности использовать символы для x, поэтому просто оставим формулы
-        let x;
-        // Вычисление полиномов
-        let polynomial11 = eval(polynomial1);
-        let polynomial22 = eval(polynomial2);
-
-        let result = expand(polynomial11 * polynomial22).toString();
-
-        // Разделение многочлена на отдельные члены (термы)
-        let polynomial_str = result;
-        let terms = polynomial_str.split(" + ");
-
-        // Проверка и добавление коэффициента 1 перед x, если нет коэффициента
-        let new_terms = [];
-        for (let term of terms) {
-            if (!term.includes('*x')) {
-                term = "1*" + term;
-            }
-            new_terms.push(term);
+    
+    function polynomialToSequence(polynomialString) {
+        try {
+            // Parse the polynomial string
+            const polynomial = math.parse(polynomialString);
+    
+            // Get the coefficients of the polynomial
+            const coefficients = polynomial.toCoefficients();
+    
+            // Convert coefficients to binary string
+            let binaryString = coefficients.map(coef => coef !== 0 ? '1' : '0').join('');
+    
+            return binaryString;
+        } catch (error) {
+            console.error("Error parsing polynomial string:", error);
+            return "";
         }
-
-        // Объединение членов обратно в многочлен
-        let new_polynomial_str = new_terms.join(" + ");
-
-        // Удаление четных коэффициентов
-        let polynomial_str_without_even = new_polynomial_str;
-        let terms_without_even = new_polynomial_str.split(" + ");
-        let odd_coefficient_terms = [];
-
-        for (let term of terms_without_even) {
-            let coef = parseInt(term.split('*')[0]);
-            if (coef % 2 !== 0) {
-                if (coef > 1) {
-                    term = "1*" + term.substring(2, 7);
-                }
-                odd_coefficient_terms.push(term);
-            }
-        }
-
-        polynomial_str_without_even = odd_coefficient_terms.join(" + ");
-
-        console.log(`Результат перемножения многочленов: ${result} = ${polynomial_str_without_even}`);
-        console.log('# Элементы с четными коэффициентами отбрасываются, нечетные коэффициенты больше 1 обращаются в 1');
-
-        if (polynomial_str_without_even.length < 8) {
-            let A1_otvet = polynomial_to_sequence(polynomial_str_without_even);
-            let A1_otvett = polynomial_str_without_even;
-        } else if (parseInt(polynomial_str_without_even.substring(5, 7)) > 7) {
-            // Делим только если старшая степень больше 7
-            // Дальнейшие действия при делении
-            // Перевод в двоичную
-            console.log("Делим на неприводимый многочлен x^8 + x^4 + x^3 + x + 1:");
-            let polynomial_str_without_evenn = polynomial_to_sequence(polynomial_str_without_even);
-            console.log(`Многочлен ${polynomial_str_without_even} в двоичном представлении: ${polynomial_str_without_evenn}`);
-
-            // Полином на который делим
-            let polynomial_del = eval("x**8 + x**4 + x**3 + x + 1");
-            let polynomial_dell = polynomial_to_sequence(polynomial_del);
-            console.log(`Многочлен ${polynomial_del} в двоичном представлении: ${polynomial_dell}`);
-            console.log("Длина", polynomial_dell.length);
-
-            // Дополнение последовательности нулями
-            let add_polynomial_dell = add_zeros(polynomial_dell, polynomial_str_without_evenn, polynomial_dell);
-            console.log("Дополненная последовательность:\n", add_polynomial_dell);
-
-            let length = add_polynomial_dell.length;
-
-            let A1_otvet = delete_xor(length, polynomial_str_without_evenn, add_polynomial_dell);
-            let A1_otvett = sequence_to_polynomial(A1_otvet);
-            console.log(`Результат деления многочлена ${polynomial_str_without_even} на неприводимый многочлен: ${A1_otvett}`);
-        } else if (parseInt(polynomial_str_without_even.substring(5, 7)) < 8) {
-            let A1_otvet = polynomial_to_sequence(polynomial_str_without_even);
-            let A1_otvett = polynomial_str_without_even;
-        }
-        return A1_otvet;
     }
-
-
-    // Функция для добавления нулей в JavaScript
-    function add_zeros(X, L1, L2) {
-        let max_width = L1.length - L2.length;
-        let zeros = "0".repeat(max_width);
+    
+    function addZeros(X, L1, L2) {
+        const maxWidth = L1.length - L2.length;
+        const zeros = "0".repeat(maxWidth);
         return X + zeros;
     }
-
-    // Функция для удаления XOR в JavaScript
-
-    let otvet;
-
-    function delete_xor(length, x1, x2) {
+    
+    function deleteXor(length, x1, x2) {
         if (length > 8) {
-            // Вычисление полинома для деления
-            let polynomial_del = eval("x**8 + x**4 + x**3 + x + 1");
-            let delete_x2 = polynomial_to_sequence(polynomial_del);
-
-            let xor_x1_x2 = parseInt(x1, 2) ^ parseInt(x2, 2);
-            let result_xor_x1_x2 = xor_x1_x2.toString(2);
-
-            console.log("Шаг:", result_xor_x1_x2);
-
-            let new_delete_x2 = add_zeros(delete_x2, result_xor_x1_x2, delete_x2);
-            length = result_xor_x1_x2.length;
-            otvet = result_xor_x1_x2;
-
-            return delete_xor(length, result_xor_x1_x2, new_delete_x2);
+            const polynomialDel = math.evaluate("x^8 + x^4 + x^3 + x + 1");
+            const deleteX2 = polynomialToSequence(polynomialDel.toString());
+            const xorX1X2 = parseInt(x1, 2) ^ parseInt(x2, 2);
+            const resultXorX1X2 = xorX1X2.toString(2);
+    
+            const newDeleteX2 = addZeros(deleteX2, resultXorX1X2, deleteX2);
+            length = resultXorX1X2.length;
+            return deleteXor(length, resultXorX1X2, newDeleteX2);
         } else {
-            console.log("Результат деления:", otvet);
-            return otvet;
+            return x1; // Returning x1 as the final result after XOR operations
         }
     }
-
-
-    function expand(expression) {
-        // Проверяем, определено ли expression и является ли строкой
-        if (typeof expression !== 'string' || expression.trim() === '') {
-            console.error("Ошибка: неверный формат многочлена.");
-            return ""; // Возвращаем пустую строку или что-то другое, в зависимости от логики вашей программы
-        }
     
-        // Разбиваем многочлен на члены (термы)
-        let terms = expression.split(" + ");
-        let expandedExpression = "";
     
-        // Проходимся по каждому члену многочлена
-        for (let i = 0; i < terms.length; i++) {
-            // Разбиваем член многочлена на коэффициент и степень
-            let term = terms[i].trim(); // удаляем пробелы по краям
-            let parts = term.split("*");
-            let coefficient = parseInt(parts[0]);
-            let power = parseInt(parts[1].split("^")[1]);
-    
-            // Добавляем каждый член многочлена в раскрытую форму
-            if (i > 0 && coefficient >= 0) {
-                expandedExpression += " + ";
-            }
-            if (coefficient < 0) {
-                expandedExpression += "-";
-            }
-            expandedExpression += coefficient < 0 ? Math.abs(coefficient) : coefficient;
-    
-            // Добавляем степень x
-            if (power !== 0) {
-                expandedExpression += "x";
-    
-                // Добавляем степень, если она больше 1
-                if (power !== 1) {
-                    expandedExpression += "^" + power;
+    function multiplyPolynomials(polynomial1, polynomial2) {
+            const x = math.parse('x');
+            // Парсим строки многочленов, чтобы создать выражения многочленов
+            const poly1 = math.evaluate(polynomial1);
+            const poly2 = math.evaluate(polynomial2);
+        
+            // Перемножаем многочлены
+            const result = math.simplify(math.multiply(poly1, poly2)).toString();
+        
+            // Разделите многочлен на отдельные члены (термы)
+            let terms = result.split(" + ");
+        
+            // Проверяем и добавляем коэффициент 1 перед x, если нет коэффициента
+            let newTerms = terms.map(term => {
+                if (!term.includes('*x')) {
+                    term = '1*' + term;
+                }
+                return term;
+            });
+        
+            // Объедините члены обратно в многочлен
+            let newPolynomialStr = newTerms.join(" + ");
+        
+            // Сохраните только члены с нечётными коэффициентами
+            let oddCoefficientTerms = [];
+            for (let term of newTerms) {
+                let coef = term.split('*')[0];
+                if (!isNaN(coef)) {
+                    if (parseInt(coef) % 2 !== 0) {
+                        if (parseInt(coef) > 1) {
+                            term = '1*' + term.split('*')[1];
+                        }
+                        oddCoefficientTerms.push(term);
+                    }
                 }
             }
+        
+            // Объедините члены обратно в многочлен
+            let polynomialStrWithoutEven = oddCoefficientTerms.join(' + ');
+        
+            // Выведите новый многочлен
+            console.log(`Результат перемножения многочленов: ${result} = ${polynomialStrWithoutEven}`);
+            console.log('# Элементы с четными коэффициентами отбрасываются, нечетные коэффициенты больше 1 обращаются в 1');
+        
+            let A1_otvet;
+            let A1_otvett;
+        
+            if (polynomialStrWithoutEven.length < 8) {
+                A1_otvet = polynomialToSequence(polynomialStrWithoutEven);
+                A1_otvett = polynomialStrWithoutEven;
+            } else if (parseInt(polynomialStrWithoutEven.match(/x\*\*(\d+)/)[1]) > 7) { // делим только если старшая степень больше 7
+                console.log("Делим на неприводимый многочлен x^8 + x^4 + x^3 + x + 1:");
+                let polynomialStrWithoutEvenn = polynomialToSequence(polynomialStrWithoutEven);
+        
+                // полином на который делить
+                let polynomialDel = math.evaluate("x^8 + x^4 + x^3 + x + 1");
+                let polynomialDell = polynomialToSequence(polynomialDel.toString());
+        
+                let addPolynomialDell = addZeros(polynomialDell, polynomialStrWithoutEvenn, polynomialDell);
+        
+                let length = addPolynomialDell.length;
+        
+                A1_otvet = deleteXor(length, polynomialStrWithoutEvenn, addPolynomialDell);
+                A1_otvett = sequenceToPolynomial(A1_otvet);
+                console.log(`Результат деления многочлена ${polynomialStrWithoutEven} на неприводимый многочлен: ${A1_otvett}`);
+            } else if (parseInt(polynomialStrWithoutEven.match(/x\*\*(\d+)/)[1]) < 8) {
+                A1_otvet = polynomialToSequence(polynomialStrWithoutEven);
+                A1_otvett = polynomialStrWithoutEven;
+            }
+        
+            return A1_otvet;
         }
-    
-        return expandedExpression;
-    }
-    
-    
 
 
+
+
+    
 
     function calculateMX() {
-        function hexToBinary(hex) {
-            return parseInt(hex, 16).toString(2).padStart(8, '0');
+            const Column1 = document.getElementById('MX11').value;
+            const Column2 = document.getElementById('MX12').value;
+            const Column3 = document.getElementById('MX13').value;
+            const Column4 = document.getElementById('MX14').value;
+    
+            const String1 = document.getElementById('MX21').value;
+            const String2 = document.getElementById('MX22').value;
+            const String3 = document.getElementById('MX23').value;
+            const String4 = document.getElementById('MX24').value;
+    
+            const sequenceColumn1 = hexToBinary(Column1.toUpperCase());
+            console.log(`\nШестнадцатеричное число ${Column1.toUpperCase()} в двоичной системе: ${sequenceColumn1}`);
+            const polynomialColumn1 = sequenceToPolynomial(sequenceColumn1);
+            console.log(`Последовательность ${sequenceColumn1} преобразуется в многочлен: ${polynomialColumn1}`);
+    
+            const sequenceString1 = hexToBinary(String1.toUpperCase());
+            console.log(`Шестнадцатеричное число ${String1.toUpperCase()} в двоичной системе: ${sequenceString1}`);
+            const polynomialString1 = sequenceToPolynomial(sequenceString1);
+            console.log(`Последовательность ${sequenceString1} преобразуется в многочлен: ${polynomialString1}`);
+            const AAA1 = multiplyPolynomials(polynomialColumn1, polynomialString1);
+            console.log(`● ${Column1.toUpperCase()} * ${String1.toUpperCase()} = ${AAA1.padStart(8, '0')}\n`);
+    
+            const sequenceColumn2 = hexToBinary(Column2.toUpperCase());
+            console.log(`Шестнадцатеричное число ${Column2.toUpperCase()} в двоичной системе: ${sequenceColumn2}`);
+            const polynomialColumn2 = sequenceToPolynomial(sequenceColumn2);
+            console.log(`Последовательность ${sequenceColumn2} преобразуется в многочлен: ${polynomialColumn2}`);
+    
+            const sequenceString2 = hexToBinary(String2.toUpperCase());
+            console.log(`Шестнадцатеричное число ${String2.toUpperCase()} в двоичной системе: ${sequenceString2}`);
+            const polynomialString2 = sequenceToPolynomial(sequenceString2);
+            console.log(`Последовательность ${sequenceString2} преобразуется в многочлен: ${polynomialString2}`);
+            const AAA2 = multiplyPolynomials(polynomialColumn2, polynomialString2);
+            console.log(`● ${Column2.toUpperCase()} * ${String2.toUpperCase()} = ${AAA2.padStart(8, '0')}\n`);
+    
+            const sequenceColumn3 = hexToBinary(Column3.toUpperCase());
+            console.log(`Шестнадцатеричное число ${Column3.toUpperCase()} в двоичной системе: ${sequenceColumn3}`);
+            const polynomialColumn3 = sequenceToPolynomial(sequenceColumn3);
+            console.log(`Последовательность ${sequenceColumn3} преобразуется в многочлен: ${polynomialColumn3}`);
+    
+            const sequenceString3 = hexToBinary(String3.toUpperCase());
+            console.log(`Шестнадцатеричное число ${String3.toUpperCase()} в двоичной системе: ${sequenceString3}`);
+            const polynomialString3 = sequenceToPolynomial(sequenceString3);
+            console.log(`Последовательность ${sequenceString3} преобразуется в многочлен: ${polynomialString3}`);
+            const AAA3 = multiplyPolynomials(polynomialColumn3, polynomialString3);
+            console.log(`● ${Column3.toUpperCase()} * ${String3.toUpperCase()} = ${AAA3.padStart(8, '0')}\n`);
+    
+            const sequenceColumn4 = hexToBinary(Column4.toUpperCase());
+            console.log(`Шестнадцатеричное число ${Column4.toUpperCase()} в двоичной системе: ${sequenceColumn4}`);
+            const polynomialColumn4 = sequenceToPolynomial(sequenceColumn4);
+            console.log(`Последовательность ${sequenceColumn4} преобразуется в многочлен: ${polynomialColumn4}`);
+    
+            const sequenceString4 = hexToBinary(String4.toUpperCase());
+            console.log(`Шестнадцатеричное число ${String4.toUpperCase()} в двоичной системе: ${sequenceString4}`);
+            const polynomialString4 = sequenceToPolynomial(sequenceString4);
+            console.log(`Последовательность ${sequenceString4} преобразуется в многочлен: ${polynomialString4}`);
+            const AAA4 = multiplyPolynomials(polynomialColumn4, polynomialString4);
+            console.log(`● ${Column4.toUpperCase()} * ${String4.toUpperCase()} = ${AAA4.padStart(8, '0')}\n`);
+    
+            console.log(`● XOR всех полученных чисел:`);
+            const xorResult = [AAA1, AAA2, AAA3, AAA4].reduce((acc, cur) => acc ^ parseInt(cur, 2), 0).toString(2).padStart(8, '0');
+            const hexOutput = parseInt(xorResult, 2).toString(16).toUpperCase();
+            console.log(` ${AAA1.padStart(8, '0')}`);
+            console.log(` ${AAA2.padStart(8, '0')}`);
+            console.log(` ${AAA3.padStart(8, '0')}`);
+            console.log(` ${AAA4.padStart(8, '0')}`);
+            console.log("⎯⎯⎯⎯⎯⎯⎯⎯⎯");
+            console.log(` ${xorResult} = ${hexOutput}`);
+            console.log(`\nОТВЕТ: ${hexOutput}`);
+    
+            document.getElementById('resultMX').value = `\nОТВЕТ: ${hexOutput}`;
         }
 
-        const Column1 = document.getElementById('MX11').value;
-        const Column2 = document.getElementById('MX12').value;
-        const Column3 = document.getElementById('MX13').value;
-        const Column4 = document.getElementById('MX14').value;
 
-        const String1 = document.getElementById('MX21').value;
-        const String2 = document.getElementById('MX22').value;
-        const String3 = document.getElementById('MX23').value;
-        const String4 = document.getElementById('MX24').value;
-        // 1
-        // Переводим из 16 в 2
-        let sequence_Column1 = hexToBinary(Column1.toUpperCase());
-        console.log(`\nШестнадцатеричное число ${Column1.toUpperCase()} в двоичной системе: ${sequence_Column1}`);
-        // Представляем в виде многочлена
-        let polynomial_Column1 = sequenceToPolynomial(sequence_Column1);
-        console.log(`Последовательность ${sequence_Column1} преобразуется в многочлен: ${polynomial_Column1}`);
+
+
+
+
+
+
+
+    // function hexToBinary(hexNum) {
+    //     const hexToBinDict = {
+    //         '0': '0000', '1': '0001', '2': '0010', '3': '0011',
+    //         '4': '0100', '5': '0101', '6': '0110', '7': '0111',
+    //         '8': '1000', '9': '1001', 'A': '1010', 'B': '1011',
+    //         'C': '1100', 'D': '1101', 'E': '1110', 'F': '1111'
+    //     };
     
-        // Переводим из 16 в 2
-        let sequence_String1 = hexToBinary(String1.toUpperCase());
-        console.log(`Шестнадцатеричное число ${String1.toUpperCase()} в двоичной системе: ${sequence_String1}`);
-        // Представляем в виде многочлена
-        let polynomial_String1 = sequenceToPolynomial(sequence_String1);
-        console.log(`Последовательность ${sequence_String1} преобразуется в многочлен: ${polynomial_String1}`);
-        let AAA1 = multiplyPolynomials(polynomial_Column1, polynomial_String1);
-        console.log(`● ${Column1.toUpperCase()} * ${String1.toUpperCase()} = ${AAA1.padStart(8, '0')}\n`);
+    //     let binaryNum = "";
+    //     for (let digit of hexNum) {
+    //         binaryNum += hexToBinDict[digit.toUpperCase()];
+    //     }
     
-        // 2
-        // Переводим из 16 в 2
-        let sequence_Column2 = hexToBinary(Column2.toUpperCase());
-        console.log(`Шестнадцатеричное число ${Column2.toUpperCase()} в двоичной системе: ${sequence_Column2}`);
-        // Представляем в виде многочлена
-        let polynomial_Column2 = sequenceToPolynomial(sequence_Column2);
-        console.log(`Последовательность ${sequence_Column2} преобразуется в многочлен: ${polynomial_Column2}`);
+    //     return binaryNum;
+    // }
+
+
+    // function sequenceToPolynomial(sequence) {
+    //     let polynomial = "";
+    //     const length = sequence.length;
     
-        // Переводим из 16 в 2
-        let sequence_String2 = hexToBinary(String2.toUpperCase());
-        console.log(`Шестнадцатеричное число ${String2.toUpperCase()} в двоичной системе: ${sequence_String2}`);
-        // Представляем в виде многочлена
-        let polynomial_String2 = sequenceToPolynomial(sequence_String2);
-        console.log(`Последовательность ${sequence_String2} преобразуется в многочлен: ${polynomial_String2}`);
-        let AAA2 = multiplyPolynomials(polynomial_Column2, polynomial_String2);
-        console.log(`● ${Column2.toUpperCase()} * ${String2.toUpperCase()} = ${AAA2.padStart(8, '0')}\n`);
+    //     for (let i = 0; i < length; i++) {
+    //         if (sequence[i] === '1') {
+    //             let power = length - 1 - i;
+    //             if (power > 0) {
+    //                 polynomial += `x**${power} + `;
+    //             } else if (power === 0) {
+    //                 polynomial += "1";
+    //             }
+    //         }
+    //     }
+    
+    //     // Remove the trailing " + " if present
+    //     if (polynomial.endsWith(" + ")) {
+    //         polynomial = polynomial.slice(0, -3);
+    //     }
+    
+    //     // If the sequence ends with '0', append "0" if the polynomial is empty
+    //     if (sequence[length - 1] === '0' && polynomial === "") {
+    //         polynomial = "0";
+    //     }
+    
+    //     return polynomial;
+    // }
+
+    // // Импортируем библиотеку mathjs
+    // //const math = require('mathjs');
+
+    // function polynomialToSequence(polynomialString) {
+    //     // Парсим строку многочлена, чтобы создать выражение многочлена
+    //     const polynomial = math.parse(polynomialString);
+
+    //     // Получаем коэффициенты многочлена
+    //     const coefficients = polynomial.toCoefficients();
+
+    //     // Преобразуем коэффициенты в бинарную строку
+    //     let binaryString = coefficients.map(coef => coef !== 0 ? '1' : '0').join('');
+
+    //     return binaryString;
+    // }
+
+
+
+    
+    // function multiplyPolynomials(polynomial1, polynomial2) {
+    //     // Парсим строки многочленов, чтобы создать выражения многочленов
+    //     const poly1 = math.evaluate(polynomial1);
+    //     const poly2 = math.evaluate(polynomial2);
+    
+    //     // Перемножаем многочлены
+    //     const result = math.simplify(math.multiply(poly1, poly2)).toString();
+    
+    //     // Разделите многочлен на отдельные члены (термы)
+    //     let terms = result.split(" + ");
+    
+    //     // Проверяем и добавляем коэффициент 1 перед x, если нет коэффициента
+    //     let newTerms = terms.map(term => {
+    //         if (!term.includes('*x')) {
+    //             term = '1*' + term;
+    //         }
+    //         return term;
+    //     });
+    
+    //     // Объедините члены обратно в многочлен
+    //     let newPolynomialStr = newTerms.join(" + ");
+    
+    //     // Сохраните только члены с нечётными коэффициентами
+    //     let oddCoefficientTerms = [];
+    //     for (let term of newTerms) {
+    //         let coef = term.split('*')[0];
+    //         if (!isNaN(coef)) {
+    //             if (parseInt(coef) % 2 !== 0) {
+    //                 if (parseInt(coef) > 1) {
+    //                     term = '1*' + term.split('*')[1];
+    //                 }
+    //                 oddCoefficientTerms.push(term);
+    //             }
+    //         }
+    //     }
+    
+    //     // Объедините члены обратно в многочлен
+    //     let polynomialStrWithoutEven = oddCoefficientTerms.join(' + ');
+    
+    //     // Выведите новый многочлен
+    //     console.log(`Результат перемножения многочленов: ${result} = ${polynomialStrWithoutEven}`);
+    //     console.log('# Элементы с четными коэффициентами отбрасываются, нечетные коэффициенты больше 1 обращаются в 1');
+    
+    //     let A1_otvet;
+    //     let A1_otvett;
+    
+    //     if (polynomialStrWithoutEven.length < 8) {
+    //         A1_otvet = polynomialToSequence(polynomialStrWithoutEven);
+    //         A1_otvett = polynomialStrWithoutEven;
+    //     } else if (parseInt(polynomialStrWithoutEven.match(/x\*\*(\d+)/)[1]) > 7) { // делим только если старшая степень больше 7
+    //         console.log("Делим на неприводимый многочлен x^8 + x^4 + x^3 + x + 1:");
+    //         let polynomialStrWithoutEvenn = polynomialToSequence(polynomialStrWithoutEven);
+    
+    //         // полином на который делить
+    //         let polynomialDel = math.evaluate("x^8 + x^4 + x^3 + x + 1");
+    //         let polynomialDell = polynomialToSequence(polynomialDel.toString());
+    
+    //         let addPolynomialDell = addZeros(polynomialDell, polynomialStrWithoutEvenn, polynomialDell);
+    
+    //         let length = addPolynomialDell.length;
+    
+    //         A1_otvet = deleteXor(length, polynomialStrWithoutEvenn, addPolynomialDell);
+    //         A1_otvett = sequenceToPolynomial(A1_otvet);
+    //         console.log(`Результат деления многочлена ${polynomialStrWithoutEven} на неприводимый многочлен: ${A1_otvett}`);
+    //     } else if (parseInt(polynomialStrWithoutEven.match(/x\*\*(\d+)/)[1]) < 8) {
+    //         A1_otvet = polynomialToSequence(polynomialStrWithoutEven);
+    //         A1_otvett = polynomialStrWithoutEven;
+    //     }
+    
+    //     return A1_otvet;
+    // }
+
+    // function addZeros(X, L1, L2) {
+    //     const maxWidth = L1.length - L2.length;
+    //     const zeros = "0".repeat(maxWidth);
+    //     return X + zeros;
+    // }
+    
+    // function deleteXor(length, x1, x2) {
+    //     if (length > 8) {
+    //         const polynomialDel = math.evaluate("x^8 + x^4 + x^3 + x + 1");
+    //         const deleteX2 = polynomialToSequence(polynomialDel.toString());
+    //         const xorX1X2 = parseInt(x1, 2) ^ parseInt(x2, 2);
+    //         const resultXorX1X2 = xorX1X2.toString(2);
+    
+    //         const newDeleteX2 = addZeros(deleteX2, resultXorX1X2, deleteX2);
+    //         length = resultXorX1X2.length;
+    //         return deleteXor(length, resultXorX1X2, newDeleteX2);
+    //     } else {
+    //         return x1; // Returning x1 as the final result after XOR operations
+    //     }
+    // }
+
+    // function calculateMX() {
+    //     const Column1 = document.getElementById('MX11').value;
+    //     const Column2 = document.getElementById('MX12').value;
+    //     const Column3 = document.getElementById('MX13').value;
+    //     const Column4 = document.getElementById('MX14').value;
+
+    //     const String1 = document.getElementById('MX21').value;
+    //     const String2 = document.getElementById('MX22').value;
+    //     const String3 = document.getElementById('MX23').value;
+    //     const String4 = document.getElementById('MX24').value;
+
+    //     const sequenceColumn1 = hexToBinary(Column1.toUpperCase());
+    //     console.log(`\nШестнадцатеричное число ${Column1.toUpperCase()} в двоичной системе: ${sequenceColumn1}`);
+    //     const polynomialColumn1 = sequenceToPolynomial(sequenceColumn1);
+    //     console.log(`Последовательность ${sequenceColumn1} преобразуется в многочлен: ${polynomialColumn1}`);
+
+    //     const sequenceString1 = hexToBinary(String1.toUpperCase());
+    //     console.log(`Шестнадцатеричное число ${String1.toUpperCase()} в двоичной системе: ${sequenceString1}`);
+    //     const polynomialString1 = sequenceToPolynomial(sequenceString1);
+    //     console.log(`Последовательность ${sequenceString1} преобразуется в многочлен: ${polynomialString1}`);
+    //     const AAA1 = multiplyPolynomials(polynomialColumn1, polynomialString1);
+    //     console.log(`● ${Column1.toUpperCase()} * ${String1.toUpperCase()} = ${AAA1.padStart(8, '0')}\n`);
+
+    //     const sequenceColumn2 = hexToBinary(Column2.toUpperCase());
+    //     console.log(`Шестнадцатеричное число ${Column2.toUpperCase()} в двоичной системе: ${sequenceColumn2}`);
+    //     const polynomialColumn2 = sequenceToPolynomial(sequenceColumn2);
+    //     console.log(`Последовательность ${sequenceColumn2} преобразуется в многочлен: ${polynomialColumn2}`);
+
+    //     const sequenceString2 = hexToBinary(String2.toUpperCase());
+    //     console.log(`Шестнадцатеричное число ${String2.toUpperCase()} в двоичной системе: ${sequenceString2}`);
+    //     const polynomialString2 = sequenceToPolynomial(sequenceString2);
+    //     console.log(`Последовательность ${sequenceString2} преобразуется в многочлен: ${polynomialString2}`);
+    //     const AAA2 = multiplyPolynomials(polynomialColumn2, polynomialString2);
+    //     console.log(`● ${Column2.toUpperCase()} * ${String2.toUpperCase()} = ${AAA2.padStart(8, '0')}\n`);
+
+    //     const sequenceColumn3 = hexToBinary(Column3.toUpperCase());
+    //     console.log(`Шестнадцатеричное число ${Column3.toUpperCase()} в двоичной системе: ${sequenceColumn3}`);
+    //     const polynomialColumn3 = sequenceToPolynomial(sequenceColumn3);
+    //     console.log(`Последовательность ${sequenceColumn3} преобразуется в многочлен: ${polynomialColumn3}`);
+
+    //     const sequenceString3 = hexToBinary(String3.toUpperCase());
+    //     console.log(`Шестнадцатеричное число ${String3.toUpperCase()} в двоичной системе: ${sequenceString3}`);
+    //     const polynomialString3 = sequenceToPolynomial(sequenceString3);
+    //     console.log(`Последовательность ${sequenceString3} преобразуется в многочлен: ${polynomialString3}`);
+    //     const AAA3 = multiplyPolynomials(polynomialColumn3, polynomialString3);
+    //     console.log(`● ${Column3.toUpperCase()} * ${String3.toUpperCase()} = ${AAA3.padStart(8, '0')}\n`);
+
+    //     const sequenceColumn4 = hexToBinary(Column4.toUpperCase());
+    //     console.log(`Шестнадцатеричное число ${Column4.toUpperCase()} в двоичной системе: ${sequenceColumn4}`);
+    //     const polynomialColumn4 = sequenceToPolynomial(sequenceColumn4);
+    //     console.log(`Последовательность ${sequenceColumn4} преобразуется в многочлен: ${polynomialColumn4}`);
+
+    //     const sequenceString4 = hexToBinary(String4.toUpperCase());
+    //     console.log(`Шестнадцатеричное число ${String4.toUpperCase()} в двоичной системе: ${sequenceString4}`);
+    //     const polynomialString4 = sequenceToPolynomial(sequenceString4);
+    //     console.log(`Последовательность ${sequenceString4} преобразуется в многочлен: ${polynomialString4}`);
+    //     const AAA4 = multiplyPolynomials(polynomialColumn4, polynomialString4);
+    //     console.log(`● ${Column4.toUpperCase()} * ${String4.toUpperCase()} = ${AAA4.padStart(8, '0')}\n`);
+
+    //     console.log(`● XOR всех полученных чисел:`);
+    //     const xorResult = [AAA1, AAA2, AAA3, AAA4].reduce((acc, cur) => acc ^ parseInt(cur, 2), 0).toString(2).padStart(8, '0');
+    //     const hexOutput = parseInt(xorResult, 2).toString(16).toUpperCase();
+    //     console.log(` ${AAA1.padStart(8, '0')}`);
+    //     console.log(` ${AAA2.padStart(8, '0')}`);
+    //     console.log(` ${AAA3.padStart(8, '0')}`);
+    //     console.log(` ${AAA4.padStart(8, '0')}`);
+    //     console.log("⎯⎯⎯⎯⎯⎯⎯⎯⎯");
+    //     console.log(` ${xorResult} = ${hexOutput}`);
+    //     console.log(`\nОТВЕТ: ${hexOutput}`);
+
+    //     document.getElementById('resultMX').value = `\nОТВЕТ: ${hexOutput}`;
+    // }
     
 
-         // 3
-        let sequence_Column3 = hexToBinary(Column3.toUpperCase());
-        console.log(`Шестнадцатеричное число ${Column3.toUpperCase()} в двоичной системе: ${sequence_Column3}`);
-        let polynomial_Column3 = sequenceToPolynomial(sequence_Column3);
-        console.log(`Последовательность ${sequence_Column3} преобразуется в многочлен: ${polynomial_Column3}`);
 
-        let sequence_String3 = hexToBinary(String3.toUpperCase());
-        console.log(`Шестнадцатеричное число ${String3.toUpperCase()} в двоичной системе: ${sequence_String3}`);
-        let polynomial_String3 = sequenceToPolynomial(sequence_String3);
-        console.log(`Последовательность ${sequence_String3} преобразуется в многочлен: ${polynomial_String3}`);
-        let AAA3 = multiplyPolynomials(polynomial_Column3, polynomial_String3);
-        console.log(`● ${Column3.toUpperCase()} * ${String3.toUpperCase()} = ${AAA3.padStart(8, '0')}\n`);
 
-        // 4
-        let sequence_Column4 = hexToBinary(Column4.toUpperCase());
-        console.log(`Шестнадцатеричное число ${Column4.toUpperCase()} в двоичной системе: ${sequence_Column4}`);
-        let polynomial_Column4 = sequenceToPolynomial(sequence_Column4);
-        console.log(`Последовательность ${sequence_Column4} преобразуется в многочлен: ${polynomial_Column4}`);
+    
 
-        let sequence_String4 = hexToBinary(String4.toUpperCase());
-        console.log(`Шестнадцатеричное число ${String4.toUpperCase()} в двоичной системе: ${sequence_String4}`);
-        let polynomial_String4 = sequenceToPolynomial(sequence_String4);
-        console.log(`Последовательность ${sequence_String4} преобразуется в многочлен: ${polynomial_String4}`);
-        let AAA4 = multiplyPolynomials(polynomial_Column4, polynomial_String4);
-        console.log(`● ${Column4.toUpperCase()} * ${String4.toUpperCase()} = ${AAA4.padStart(8, '0')}\n`);
 
-        console.log(`● XOR всех полученных чисел:`);
-        let xorResult = parseInt(AAA1, 2) ^ parseInt(AAA2, 2) ^ parseInt(AAA3, 2) ^ parseInt(AAA4, 2);
-        let resultXOR = xorResult.toString(2).padStart(8, '0');
-        let decimalOutput = parseInt(resultXOR, 2);
-        let hexOutput = decimalOutput.toString(16).toUpperCase();
-        console.log(` ${AAA1.padStart(8, '0')}`);
-        console.log(` ${AAA2.padStart(8, '0')}`);
-        console.log(` ${AAA3.padStart(8, '0')}`);
-        console.log(` ${AAA4.padStart(8, '0')}`);
-        console.log(`⎯⎯⎯⎯⎯⎯⎯⎯`);
-        console.log(` ${resultXOR} = ${hexOutput}`);
-        console.log(`\nОТВЕТ: ${hexOutput}`);
 
-        document.getElementById('resultMX').value = `\nОТВЕТ: ${hexOutput}`;
-    }
+
+
+
+
+
+
+
 });
 
 

@@ -105,6 +105,7 @@ nav ul li:hover .dropdown-content {
     height: auto;
     display: block;
     margin: 0 auto;
+    margin-bottom: 100px;
 }
 
 input {
