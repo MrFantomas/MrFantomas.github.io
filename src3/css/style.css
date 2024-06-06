@@ -106,3 +106,10 @@ nav ul li:hover .dropdown-content {
     display: block;
     margin: 0 auto;
 }
+
+input {
+    margin-left: 10%;
+    height: 30px;
+    width: 80%; /* Добавляем ширину */
+    box-sizing: border-box; /* Чтобы padding не увеличивал размер input */
+}
