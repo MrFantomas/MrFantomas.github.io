@@ -8,8 +8,8 @@ document.getElementById("checkMeButton").addEventListener("click", function() {
     } else if (clickCount === 20) {
         alert("Я тебя предупреждал!");
     } else if (clickCount === 25) {
-        alert("kotKyzma");
-    } else if (clickCount === 40) {
+        alert("kotKyzma - это пароль)");
+    } else if (clickCount === 100) {
         document.getElementById("messageContainer").classList.remove("hidden");
     }
 });
