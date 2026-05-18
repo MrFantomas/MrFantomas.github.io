@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Холст рекламы 1000×1000 — DigitMarket</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 18px 0;
+            border-bottom: 1px solid #1f1f2b;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #00ff9d, #00c4ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        nav a {
+            color: #b0b0c0;
+            margin: 0 22px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover { color: #00ff9d; }
+
+        .search-input {
+            padding: 12px 20px;
+            width: 340px;
+            background: #16161f;
+            border: 1px solid #2a2a38;
+            border-radius: 50px;
+            color: white;
+        }
+
+        /* CANVAS PAGE */
+        .canvas-hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .canvas-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 16px;
+        }
+
+        .canvas-info {
+            font-size: 1.3rem;
+            color: #a0a0b0;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .canvas-wrapper {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: #111118;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        #adCanvas {
+            border: 4px solid #00ff9d;
+            border-radius: 16px;
+            box-shadow: 0 0 50px rgba(0, 255, 157, 0.4);
+            cursor: crosshair;
+            background: #1a1a22;
+        }
+
+        .canvas-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            font-size: 1.1rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00ff9d;
+        }
+
+        .controls {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn-primary {
+            background: #00ff9d;
+            color: #000;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #00e08a;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #00ff9d;
+            color: #00ff9d;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: #0a0a0f;
+            color: #666;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">DigitMarket</div>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="#">Каталог</a>
+                <a href="#">Услуги</a>
+                <a href="canvas.html">Холст</a>
+            </nav>
+            <div class="header-right">
+                <input type="text" class="search-input" placeholder="Поиск...">
+                <button class="btn-primary">+ Разместить</button>
+                <i class="fas fa-user-circle" style="font-size: 28px; color: #00ff9d; cursor: pointer;"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <div class="canvas-hero">
+            <h1>Рекламный холст <span style="color:#00ff9d;">1000 × 1000</span></h1>
+            <p class="canvas-info">
+                1 000 000 пикселей • Каждый пиксель может вести на ваш товар или сайт
+            </p>
+        </div>
+
+        <!-- Сам холст -->
+        <div class="canvas-wrapper">
+            <canvas id="adCanvas" width="1000" height="1000"></canvas>
+        </div>
+
+        <!-- Статистика -->
+        <div class="canvas-stats">
+            <div class="stat">
+                <div class="stat-number">874 231</div>
+                <div>Пикселей занято</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">387</div>
+                <div>Баннеров размещено</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">142</div>
+                <div>Сегодня</div>
+            </div>
+        </div>
+
+        <!-- Управление -->
+        <div class="controls">
+            <button class="btn-primary" onclick="buyPixels()">💎 Купить пиксели</button>
+            <button class="btn-secondary">Как это работает</button>
+            <button class="btn-secondary">Мои баннеры</button>
+        </div>
+
+        <div style="text-align: center; margin: 60px 0; color: #888; font-size: 1.1rem;">
+            Цена: от <strong style="color:#00ff9d;">1 ₽</strong> за пиксель • Минимальный пакет — 100 пикселей
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 DigitMarket • Рекламный холст</p>
+    </footer>
+
+    <script>
+        // Простая демонстрация холста
+        const canvas = document.getElementById('adCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Фон
+        ctx.fillStyle = '#1a1a22';
+        ctx.fillRect(0, 0, 1000, 1000);
+
+        // Пример существующих баннеров
+        ctx.fillStyle = '#00ff9d';
+        ctx.fillRect(100, 150, 220, 120);
+        ctx.fillStyle = '#000';
+        ctx.font = 'bold 28px Inter';
+        ctx.fillText('ТВОЙ БАННЕР', 130, 220);
+
+        ctx.fillStyle = '#00c4ff';
+        ctx.fillRect(650, 300, 180, 140);
+        ctx.fillStyle = '#000';
+        ctx.fillText('Здесь', 700, 380);
+
+        ctx.fillStyle = '#ff00aa';
+        ctx.fillRect(200, 600, 300, 80);
+        ctx.fillStyle = '#fff';
+        ctx.fillText('Размести свой!', 240, 650);
+
+        // Клик по холсту
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = Math.floor(e.clientX - rect.left);
+            const y = Math.floor(e.clientY - rect.top);
+            
+            alert(`Вы кликнули по координатам: (${x}, ${y})\n\nЗдесь можно будет купить этот участок!`);
+        });
+    </script>
+
+</body>
+</html>
